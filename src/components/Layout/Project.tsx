@@ -33,7 +33,7 @@ const Project: React.FC<ProjectProps> = ({
     const [lessonsList, setLessonsList] = useState<string[]>([])
     const [videoSrc, setVideoSrc] = useState<string | null>(null);
 
-    const isPhoneScreen = useIsPhoneScreen()
+    const isPhoneScreen = useIsPhoneScreen(true)
 
     useEffect(() => {
         const loadProjectInfo = async () => {
