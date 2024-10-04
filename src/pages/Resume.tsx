@@ -20,6 +20,7 @@ import Synopsis from '../docs/synopsis.mdx'
 import '../styles/Resume.css'
 import CustomText from '../components/Text/CustomText';
 import CustomButton from '../components/Buttons/CustomButton';
+import LoadingDataContainer from '../components/MicroElements/LoadingDataContainer';
 
 const workExperiences = [
     {
@@ -47,7 +48,7 @@ const Resume = () => {
 
     const navigate = useNavigate()
 
-    const [skills, setSkills] = useState<{ title: string, strength: number }[]>([])
+    const [skills, setSkills] = useState<{ title: string, strength: number }[] | undefined>(undefined)
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -68,121 +69,126 @@ const Resume = () => {
     }, [])
 
     return (
-        <PageContainer currPage='resume'>
+        <LoadingDataContainer
+            loadedData={[skills]}
+            display={
+                <PageContainer currPage='resume'>
 
-            {/* Welcome Message and Photo */}
-            <Box className='welcome'>
-                <Box className='welcomeMessage standardHorizontalPadded'>
-                    <CustomText type='intenseHeader' sx={{ color: palette.intenseCustomText }}>
-                        <CustomText type='content' sx={{ color: palette.passiveText }}>
-                            Hello, I'm a{' '}
-                        </CustomText>
-                        <span style={{ color: palette.green, lineHeight: 'clamp(16px, 4vw, 48px)', display: 'inline-block' }}>
-                            Software Engineer <span style={{ color: palette.neautralCustomText }}>with 6 years of coding experience!</span>
-                        </span>
-                    </CustomText>
-                    <MarkdownInterpreter markdownModule={Synopsis} />
-                    <Box className='pageVerticalMargins'>
-                        <CustomButton type='secondary' size='medium' onClick={() => navigate('/contact')}>Contact Me</CustomButton>
-                    </Box>
-                </Box>
-                <Box className='fullyCenteredColumn welcomeImage pageVerticalMargins'>
-                    <img
-                        className='curved'
-                        src={Headshot}
-                        alt='headshot'
-                        style={{
-                            boxShadow: `clamp(10px, 5vw, 40px) clamp(10px, 5vw, 40px) clamp(6px, 4vw, 30px) ${palette.shadow}`,
-                            height: 'clamp(250px, 40vw, 600px)'
-                        }}
-                    />
-                </Box>
-            </Box>
-
-            {/* Education and Skills */}
-            <Box className="educationAndSkills">
-                <Card
-                    title="Education"
-                    icon={<Education />}
-                    noMargins
-                    className='educationAndSkillsChild fillWidth'
-                >
-                    <Box className='horizontallyCenteredColumn fillHeight'>
-                        <Box className='horizontallyCenteredColumn'>
-                            {theme === 'dark' ? (
-                                <Box className='horizontallyCenteredColumn' sx={{ width: '90%' }}>
-                                    <img src={WisconsinCrest} className='tinyBottomMargin' alt="madison-crest" width='15%' />
-                                    <Box className='horizontallyCenteredColumn fillWidth'>
-                                        <img src={Wisconsin} alt="wisconsin" width='100%' style={{ marginBottom: '15px' }} />
-                                        <img src={Madison} alt="madison" width='100%' />
-                                    </Box>
-                                </Box>
-                            ) : (
-                                <img src={WisconsinLight} alt="wisconsin-light" width='100%' style={{ marginBottom: '15px' }} />
-                            )}
-                        </Box>
-                        <Box className='standardVerticalMargins' sx={{ textAlign: 'center' }}>
-                            <CustomText type='label'>
-                                Bachelor of Computer Science
+                    {/* Welcome Message and Photo */}
+                    <Box className='welcome'>
+                        <Box className='welcomeMessage standardHorizontalPadded'>
+                            <CustomText type='intenseHeader' sx={{ color: palette.intenseCustomText }}>
+                                <CustomText type='content' sx={{ color: palette.passiveText }}>
+                                    Hello, I'm a{' '}
+                                </CustomText>
+                                <span style={{ color: palette.green, lineHeight: 'clamp(16px, 4vw, 48px)', display: 'inline-block' }}>
+                                    Software Engineer <span style={{ color: palette.neautralCustomText }}>with 6 years of coding experience!</span>
+                                </span>
                             </CustomText>
+                            <MarkdownInterpreter markdownModule={Synopsis} />
+                            <Box className='pageVerticalMargins'>
+                                <CustomButton type='secondary' size='medium' onClick={() => navigate('/contact')}>Contact Me</CustomButton>
+                            </Box>
                         </Box>
-                        <CustomText type='content' sx={{ textAlign: 'center' }}>
-                            August 2018 - December 2023
-                        </CustomText>
-                    </Box>
-                </Card>
-                <Card
-                    title="Key Skills"
-                    noMargins
-                    smallCard
-                    icon={<SkillLevel />}
-                    className='educationAndSkillsChild'
-                >
-                    <CustomList
-                        items={
-                            skills.map((strength: { strength: number, title: string }) =>
-                                <Skill title={strength.title} strength={strength.strength} />
-                            )
-                        }
-                        doubleColumn
-                    />
-                </Card>
-            </Box >
-
-            {/* Work Experience */}
-            <Card title='Professional Experience' noPadding icon={<Portfolio />} className='fillWidth'>
-                <Box>
-                    {workExperiences.map((experience, index) => (
-                        <Box className='fillWidth'>
-                            <WorkExperience
-                                role={experience.role}
-                                dates={experience.dates}
-                                docFolderName={experience.docFolderName}
-                                recommendationLetterConfig={experience.recommendationLetterConfig}
-                                curvedBottomEdge={index === (workExperiences.length - 1)}
+                        <Box className='fullyCenteredColumn welcomeImage pageVerticalMargins'>
+                            <img
+                                className='curved'
+                                src={Headshot}
+                                alt='headshot'
+                                style={{
+                                    boxShadow: `clamp(10px, 5vw, 40px) clamp(10px, 5vw, 40px) clamp(6px, 4vw, 30px) ${palette.shadow}`,
+                                    height: 'clamp(250px, 40vw, 600px)'
+                                }}
                             />
-                            {index !== workExperiences.length - 1 && (
-                                <Box className='fillWidth'>
-                                    <Divider sx={{ backgroundColor: palette.passiveText, width: '100%' }} />
-                                </Box>
-                            )}
                         </Box>
-                    ))}
-                </Box>
-            </Card>
+                    </Box>
 
-            {/* Resume Download and Portfolio Buttons */}
-            <Box className='fillWidth verticallyCenteredRow spacedApart' sx={{ flexWrap: 'wrap' }}>
-                <Box className='tinyVerticalMargins'>
-                    <ResumeDownloadButton />
-                </Box>
-                <Box className='tinyVerticalMargins'>
-                    <CustomButton type='primary' size='medium' onClick={() => navigate('/portfolio')}>
-                        View Portfolio
-                    </CustomButton>
-                </Box>
-            </Box>
-        </PageContainer >
+                    {/* Education and Skills */}
+                    <Box className="educationAndSkills">
+                        <Card
+                            title="Education"
+                            icon={<Education />}
+                            noMargins
+                            className='educationAndSkillsChild fillWidth'
+                        >
+                            <Box className='horizontallyCenteredColumn fillHeight'>
+                                <Box className='horizontallyCenteredColumn'>
+                                    {theme === 'dark' ? (
+                                        <Box className='horizontallyCenteredColumn' sx={{ width: '90%' }}>
+                                            <img src={WisconsinCrest} className='tinyBottomMargin' alt="madison-crest" width='15%' />
+                                            <Box className='horizontallyCenteredColumn fillWidth'>
+                                                <img src={Wisconsin} alt="wisconsin" width='100%' style={{ marginBottom: '15px' }} />
+                                                <img src={Madison} alt="madison" width='100%' />
+                                            </Box>
+                                        </Box>
+                                    ) : (
+                                        <img src={WisconsinLight} alt="wisconsin-light" width='100%' style={{ marginBottom: '15px' }} />
+                                    )}
+                                </Box>
+                                <Box className='standardVerticalMargins' sx={{ textAlign: 'center' }}>
+                                    <CustomText type='label'>
+                                        Bachelor of Computer Science
+                                    </CustomText>
+                                </Box>
+                                <CustomText type='content' sx={{ textAlign: 'center' }}>
+                                    August 2018 - December 2023
+                                </CustomText>
+                            </Box>
+                        </Card>
+                        <Card
+                            title="Key Skills"
+                            noMargins
+                            smallCard
+                            icon={<SkillLevel />}
+                            className='educationAndSkillsChild'
+                        >
+                            <CustomList
+                                items={
+                                    skills?.map((strength: { strength: number, title: string }) =>
+                                        <Skill title={strength.title} strength={strength.strength} />
+                                    )
+                                }
+                                doubleColumn
+                            />
+                        </Card>
+                    </Box >
+
+                    {/* Work Experience */}
+                    <Card title='Professional Experience' noPadding icon={<Portfolio />} className='fillWidth'>
+                        <Box>
+                            {workExperiences.map((experience, index) => (
+                                <Box className='fillWidth'>
+                                    <WorkExperience
+                                        role={experience.role}
+                                        dates={experience.dates}
+                                        docFolderName={experience.docFolderName}
+                                        recommendationLetterConfig={experience.recommendationLetterConfig}
+                                        curvedBottomEdge={index === (workExperiences.length - 1)}
+                                    />
+                                    {index !== workExperiences.length - 1 && (
+                                        <Box className='fillWidth'>
+                                            <Divider sx={{ backgroundColor: palette.passiveText, width: '100%' }} />
+                                        </Box>
+                                    )}
+                                </Box>
+                            ))}
+                        </Box>
+                    </Card>
+
+                    {/* Resume Download and Portfolio Buttons */}
+                    <Box className='fillWidth verticallyCenteredRow spacedApart' sx={{ flexWrap: 'wrap' }}>
+                        <Box className='tinyVerticalMargins'>
+                            <ResumeDownloadButton />
+                        </Box>
+                        <Box className='tinyVerticalMargins'>
+                            <CustomButton type='primary' size='medium' onClick={() => navigate('/portfolio')}>
+                                View Portfolio
+                            </CustomButton>
+                        </Box>
+                    </Box>
+                </PageContainer >
+            }
+        />
     )
 }
 

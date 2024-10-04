@@ -5,7 +5,7 @@ import { useTheme } from '../../styles/ThemeContext';
 import CustomText from '../Text/CustomText';
 
 interface CustomListProps {
-    items: string[] | React.ReactNode[],
+    items: string[] | React.ReactNode[] | undefined,
     doubleColumn?: boolean,
     dense?: boolean
 }
@@ -57,6 +57,8 @@ const CustomList: React.FC<CustomListProps> = ({ items, doubleColumn, dense }) =
             ))}
         </List>
     );
+
+    if (!items) return
 
     return (
         <Box className='fillWidth'>

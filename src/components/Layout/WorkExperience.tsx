@@ -8,6 +8,7 @@ import Details from './Details';
 import CustomText from '../Text/CustomText';
 import CustomButton from '../Buttons/CustomButton';
 import { getIconSizeStyles } from '../../utils/sizeUtils';
+import LoadingDataContainer from '../MicroElements/LoadingDataContainer';
 
 interface WorkExperienceProps {
     role: string
@@ -71,94 +72,97 @@ const WorkExperience: React.FC<WorkExperienceProps> = ({
 
     const toggleDisplayDetails = () => setShowDetails(!showDetails)
 
-    if (!description || !logo) return
-
     return (
-        <Box>
-            <Box
-                className={`
-                verticallyCenteredRow 
-                spacedApart 
-                fillWidth 
-                ${curvedBottomEdge && !showDetails ? 'bottomCurved' : ''} 
-                standardVerticalPadded 
-                standardHorizontalPadded`
-                }
-                onClick={toggleDisplayDetails}
-                sx={{
-                    cursor: 'pointer', '&:hover': {
-                        backgroundColor: palette.highlightgrey
-                    }
-                }}
-            >
+        <LoadingDataContainer
+            loadedData={[description, logo]}
+            display={
                 <Box>
-                    <Box sx={{ display: 'flex' }}>
-                        <img
-                            src={logo}
-                            alt='company-logo'
-                            className='tinyBottomMargin'
-                            style={{ height: 'clamp(20px, 4.2vw, 35px)' }}
-                        />
-                    </Box>
-                    <Box>
-                        <CustomText type='content'>
-                            {dates}
-                        </CustomText>
-                        <CustomText type='subContent'>
-                            {role}
-                        </CustomText>
-                    </Box>
-                </Box>
-                <IconButton>
-                    {!showDetails ? (
-                        <ChevronUp size={typography.label.fontSize} color={palette.passiveText} />
-                    ) : (
-                        <ChevronDown size={typography.label.fontSize} color={palette.passiveText} />
-                    )}
-                </IconButton>
-            </Box>
-            {showDetails && (
-                <Box className='standardBottomPadded standardHorizontalPadded'>
-                    <Details
-                        description={description}
-                        lessons={lessons}
-                        tech={tech}
-                    />
-                    {recommendationLetterConfig && (
-                        <Box
-                            className='fillWidth'
-                            sx={{ display: 'flex', justifyContent: 'flex-end' }
-                            }>
-                            <CustomButton
-                                type='secondary'
-                                className='verticallyCenteredRow'
-                                onClick={handleLetterOpen}
-                                size='small'
-                            >
-                                <Document
-                                    size={getIconSizeStyles(typography.smallButton.fontSize)}
-                                    className='tinyRightMargin'
+                    <Box
+                        className={`
+                            verticallyCenteredRow 
+                            spacedApart 
+                            fillWidth 
+                            ${curvedBottomEdge && !showDetails ? 'bottomCurved' : ''} 
+                            standardVerticalPadded 
+                            standardHorizontalPadded`
+                        }
+                        onClick={toggleDisplayDetails}
+                        sx={{
+                            cursor: 'pointer', '&:hover': {
+                                backgroundColor: palette.highlightgrey
+                            }
+                        }}
+                    >
+                        <Box>
+                            <Box sx={{ display: 'flex' }}>
+                                <img
+                                    src={logo || undefined}
+                                    alt='company-logo'
+                                    className='tinyBottomMargin'
+                                    style={{ height: 'clamp(20px, 4.2vw, 35px)' }}
                                 />
-                                View Letter of Recommendation
-                            </CustomButton>
-                            <Dialog
-                                open={letterOpen}
-                                onClose={handleLetterClose}
-                                maxWidth="lg"
-                                fullWidth
-                                PaperProps={{ className: 'curved', sx: { backgroundColor: palette.card } }}
-                            >
-                                <Letter
-                                    onClose={handleLetterClose}
-                                    letterConfig={recommendationLetterConfig}
-                                    docFolderName={docFolderName}
-                                />
-                            </Dialog>
+                            </Box>
+                            <Box>
+                                <CustomText type='content'>
+                                    {dates}
+                                </CustomText>
+                                <CustomText type='subContent'>
+                                    {role}
+                                </CustomText>
+                            </Box>
+                        </Box>
+                        <IconButton>
+                            {!showDetails ? (
+                                <ChevronUp size={typography.label.fontSize} color={palette.passiveText} />
+                            ) : (
+                                <ChevronDown size={typography.label.fontSize} color={palette.passiveText} />
+                            )}
+                        </IconButton>
+                    </Box>
+                    {showDetails && (
+                        <Box className='standardBottomPadded standardHorizontalPadded'>
+                            <Details
+                                description={description || {}}
+                                lessons={lessons}
+                                tech={tech}
+                            />
+                            {recommendationLetterConfig && (
+                                <Box
+                                    className='fillWidth'
+                                    sx={{ display: 'flex', justifyContent: 'flex-end' }
+                                    }>
+                                    <CustomButton
+                                        type='secondary'
+                                        className='verticallyCenteredRow'
+                                        onClick={handleLetterOpen}
+                                        size='small'
+                                    >
+                                        <Document
+                                            size={getIconSizeStyles(typography.smallButton.fontSize)}
+                                            className='tinyRightMargin'
+                                        />
+                                        View Letter of Recommendation
+                                    </CustomButton>
+                                    <Dialog
+                                        open={letterOpen}
+                                        onClose={handleLetterClose}
+                                        maxWidth="lg"
+                                        fullWidth
+                                        PaperProps={{ className: 'curved', sx: { backgroundColor: palette.card } }}
+                                    >
+                                        <Letter
+                                            onClose={handleLetterClose}
+                                            letterConfig={recommendationLetterConfig}
+                                            docFolderName={docFolderName}
+                                        />
+                                    </Dialog>
+                                </Box>
+                            )}
                         </Box>
                     )}
                 </Box>
-            )}
-        </Box>
+            }>
+        </LoadingDataContainer>
     )
 }
 
