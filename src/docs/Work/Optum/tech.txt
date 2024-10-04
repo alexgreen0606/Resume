@@ -1,0 +1,8 @@
+React
+Redux
+Java Spring Boot
+MySQL
+Jenkins
+Azure
+JUnit Testing
+GitHub

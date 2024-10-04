@@ -1,0 +1,5 @@
+Team Leadership: Led a team of five developers for a Software Engineering course project at UW-Madison, managing all communication and overseeing development.
+Full-Stack Development: Built a React front end and a Spring Boot back end over two months, individually implementing the entire front end.
+Application Functionality: Developed an app allowing users to write Java code to navigate a robot through a maze, with user and admin homepages for maze interaction and editing.
+State Management and API Integration: Implemented React Redux for global state management and handled all API calls for updating the state and rendering components.
+Version Control and Testing: Managed the GitLab repository for both front and back end, conducting all integration testing to ensure smooth deployment.

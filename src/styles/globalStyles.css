@@ -1,0 +1,129 @@
+/* SPACING */
+
+.horizontallyCenteredColumn {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.verticallyCenteredColumn {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
+.fullyCenteredColumn {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.horizontallyCenteredRow {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+.verticallyCenteredRow {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+
+.fullyCenteredRow {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.spacedApart {
+    display: flex;
+    justify-content: space-between;
+}
+
+.curved {
+    border-radius: clamp(5px, 2vw, 10px);
+}
+
+.bottomCurved {
+    border-bottom-left-radius: clamp(5px, 2vw, 10px);
+    border-bottom-right-radius: clamp(5px, 2vw, 10px);
+}
+
+.fillWidth {
+    width: 100%
+}
+
+.fillHeight {
+    height: 100%;
+}
+
+/* PADDING */
+
+.standardBottomPadded {
+    padding-bottom: clamp(10px, 2vw, 26px);
+    box-sizing: border-box;
+}
+
+.standardHorizontalPadded {
+    padding-left: clamp(10px, 2vw, 26px);
+    padding-right: clamp(10px, 2vw, 26px);
+    box-sizing: border-box;
+}
+
+.standardVerticalPadded {
+    padding-top: clamp(10px, 2vw, 26px);
+    padding-bottom: clamp(10px, 2vw, 26px);
+    box-sizing: border-box;
+}
+
+.largeHorizontalPadded {
+    padding-left: clamp(10px, 4vw, 80px);
+    padding-right: clamp(10px, 4vw, 80px);
+    box-sizing: border-box;
+}
+
+.tinyHorizontalPadded {
+    padding-left: clamp(5px, 1.5vw, 10px);
+    padding-right: clamp(5px, 1.5vw, 10px);
+    box-sizing: border-box;
+}
+
+/* MARGINS */
+
+.tinyVerticalMargins {
+    margin-top: clamp(5px, 1.5vw, 10px);
+    margin-bottom: clamp(5px, 1.5vw, 10px);
+}
+
+.tinyBottomMargin {
+    margin-bottom: clamp(5px, 1.5vw, 10px);
+}
+
+.tinyRightMargin {
+    margin-right: clamp(5px, 1.5vw, 10px);
+}
+
+.tinyLeftMargin {
+    margin-left: clamp(5px, 1.5vw, 10px);
+}
+
+.standardVerticalMargins {
+    margin-top: clamp(15px, 4vw, 26px);
+    margin-bottom: clamp(15px, 4vw, 26px);
+}
+
+.standardTopMargin {
+    margin-top: clamp(15px, 4vw, 26px);
+}
+
+.standardBottomMargin {
+    margin-bottom: clamp(15px, 4vw, 32px);
+}
+
+.pageVerticalMargins {
+    margin-top: clamp(10px, 2vw, 20px);
+    margin-bottom: clamp(10px, 2vw, 20px);
+}

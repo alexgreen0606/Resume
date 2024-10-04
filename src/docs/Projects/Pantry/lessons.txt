@@ -1,0 +1,5 @@
+Full Stack Application Development: Designed and implemented a comprehensive full-stack application in two weeks as a capstone project at York Solutions.
+Angular Front-End: Developed a stylized, user-friendly Angular application for creating recipes and linking food items, enhancing the user experience.
+Spring Boot Back-End: Built a robust Spring Boot Java back end, enabling full CRUD operations on recipes and food items with JPA relationships, including secure user profiles using hash map security tokens for authentication.
+End-to-End Development: Independently developed the entire application, gaining a deep understanding of the design process and the importance of maintaining a high-level perspective throughout the application lifecycle.
+App Design with Miro: Utilized Miro for app design to create recipes and manage pantry inventory effectively.

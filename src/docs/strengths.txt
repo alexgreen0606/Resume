@@ -1,0 +1,7 @@
+React 100
+Spring_Boot 100
+Vite 100
+Java 100
+MySQL 85
+JUnit 70
+Angular 70

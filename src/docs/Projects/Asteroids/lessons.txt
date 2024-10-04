@@ -1,0 +1,5 @@
+CSS Animations: Utilized CSS animations to manage dynamic element movement on the screen.
+Collision Detection: Implemented real-time collision detection using React's useRef hook for accurate element interaction.
+Interval Management: Developed a suite of intervals for rapid collision checking within the game interface.
+React Hooks Proficiency: Gained experience in using React hooks to update game state based on collisions with asteroids, power-ups, and the ship.
+Code Quality: Emphasized clean coding practices and thorough commenting for improved readability and maintainability by other developers.

@@ -1,0 +1,26 @@
+.navBarContainer {
+    width: 100vw;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.buttonsContainer {
+    font-family: Menlo;
+    display: flex;
+    flex-flow: row;
+}
+
+@media (max-width: 600px) {
+    .navBarContainer {
+        flex-flow: column;
+    }
+
+    .buttonsContainer {
+        width: 100vw;
+        justify-content: center;
+    }
+
+}

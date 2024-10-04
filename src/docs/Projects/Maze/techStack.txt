@@ -1,0 +1,6 @@
+React
+Redux
+CSS
+HTML5
+Java Spring Boot
+JPA Repository

@@ -1,0 +1,8 @@
+React
+Vite
+Typescript
+Redux
+MDX
+Jira
+Confluence
+GitLab

@@ -1,0 +1,5 @@
+Angular
+CSS
+HTML5
+Java Spring Boot
+JPA Repository

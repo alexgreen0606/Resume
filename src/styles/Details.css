@@ -1,0 +1,28 @@
+.experienceAndTech {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.experience {
+    width: 67.5%;
+}
+
+.tech {
+    width: 27.5%;
+}
+
+@media (max-width: 600px) {
+    .experienceAndTech {
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .experience {
+        width: 100%;
+    }
+
+    .tech {
+        width: 100%;
+    }
+}

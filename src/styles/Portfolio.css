@@ -1,0 +1,49 @@
+.cardsContainer {
+    width: 100%;
+}
+
+.cards {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 1200px) {
+
+    .cardsContainer {
+        width: fit-content;
+    }
+
+    .cards {
+        flex-flow: column;
+        align-items: center;
+    }
+}
+
+.pantryLogo {
+    font-family: copperplate !important;
+    font-size: clamp(24px, 5vw, 50px) !important;
+    background-image: linear-gradient(#ecc9a6 40%,
+            #d3b08d 45%,
+            #95724f 55%,
+            #aa9580 60%,
+            #cc9966 100%) !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    border: none !important;
+}
+
+.thisAppLogo {
+    font-size: clamp(18px, 5vw, 50px) !important;
+    letter-spacing: -1px !important;
+    word-spacing: clamp(-20px, -1vw, -4px) !important;
+    line-height: 1 !important;
+    font-family: Menlo !important;
+}
+
+@font-face {
+    font-family: 'asteroids';
+    src: url('./fonts/Technology-Bol.ttf');
+}

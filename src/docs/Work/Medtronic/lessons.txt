@@ -1,0 +1,9 @@
+Remote Development: Delivered front-end code updates for a React Vite application in 14-day sprints, utilizing a GitLab repository for version control.
+
+App Development: Initiated development of Medtronic's Interoperability app from the ground up, creating reusable components designed for cross-site utilization within the company.
+
+Design Collaboration: Engaged in weekly design sessions to refine the app, focusing on enhancing code reusability and consistency across the application.
+
+High Workload Management: Collaborated with a small team to develop the entire front-end application, independently implementing a dynamic form generator, a documentation viewing interface, and comprehensive patient profile functionality.
+
+Agile Methodology: Applied Agile practices, managing sprint progress through Jira, and facilitated collaboration with other teams to integrate and leverage the company's SSO federation service and component library.

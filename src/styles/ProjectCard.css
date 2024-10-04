@@ -1,0 +1,13 @@
+.card {
+    width: clamp(150px, 25vw, 350px);
+    height: clamp(200px, 35vw, 500px);
+}
+
+@media (max-width: 1200px) {
+
+    .card {
+        width: 80vw;
+        height: 50vw;
+    }
+
+}
