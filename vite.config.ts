@@ -20,6 +20,5 @@ export default defineConfig({
           }
       ]
   })
-  ],
-  base: '/Resume/'
+  ]
 })

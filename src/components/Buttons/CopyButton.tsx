@@ -4,7 +4,6 @@ import { useCallback, useState } from "react";
 import { Checkmark } from "@carbon/icons-react";
 import { useTheme } from "../../styles/ThemeContext";
 import CustomText from "../Text/CustomText";
-import { getIconSizeStyles } from "../../utils/sizeUtils";
 
 const CopyButtonWithTooltip = ({ label }: { label: string }) => {
 

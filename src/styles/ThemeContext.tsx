@@ -1,7 +1,5 @@
 import { createContext, useState, useContext, ReactNode } from 'react';
 import { darkPalette, lightPalette } from './palette';
-import { SxProps } from '@mui/system';
-import { Theme } from '@mui/material/styles';
 
 export interface Typography {
     pageLabel: React.CSSProperties;
