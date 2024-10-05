@@ -14,11 +14,11 @@ export default defineConfig({
     },
     viteStaticCopy({
       targets: [
-          {
-              src: 'src/docs/strengths.csv',
-              dest: ''
-          }
+        {
+          src: 'src/docs/strengths.csv',
+          dest: ''
+        }
       ]
-  })
+    })
   ]
 })
