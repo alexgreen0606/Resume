@@ -25,21 +25,24 @@ const CopyButtonWithTooltip = ({ label }: { label: string }) => {
             <Box sx={{ width: 'fit-content' }}>
                 <InfoChip
                     title={
-                        <Box className='verticallyCenteredRow'>
+                        <CustomText type="content" className='verticallyCenteredRow'>
                             Copied
                             <Checkmark color={palette.green} size={typography.subContent.fontSize} className='tinyLeftMargin' />
-                        </Box>
+                        </CustomText>
                     }
                     placement="right"
                     open={tooltipOpen}
                 >
                     <Box onClick={handleClick} className='verticallyCenteredRow'>
-                        <CustomText type='content' sx={{
-                            '&:hover': {
-                                color: lighten(palette.passiveText, 0.5)
-                            },
-                            cursor: 'pointer'
-                        }}>
+                        <CustomText
+                            type='content'
+                            sx={{
+                                '&:hover': {
+                                    color: lighten(palette.passiveText, 0.5)
+                                },
+                                cursor: 'pointer'
+                            }}
+                        >
                             {label}
                         </CustomText>
                     </Box>
