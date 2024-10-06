@@ -132,7 +132,7 @@ const Project: React.FC<ProjectProps> = ({
                                 }}
                             >
                                 <iframe
-                                    src={`https://www.youtube.com/embed/${sampleConfig.videoId}?autoplay=1&controls=1&mute=1&loop=1&playlist=${sampleConfig.videoId}&modestbranding=1`}
+                                    src={`https://www.youtube.com/embed/${sampleConfig.videoId}?autoplay=1&controls=1&mute=1&loop=1&playlist=${sampleConfig.videoId}&modestbranding=1rel=0`}
                                     frameBorder="0"
                                     allowFullScreen
                                     allow="autoplay; encrypted-media; fullscreen;"

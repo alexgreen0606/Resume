@@ -24,7 +24,7 @@ const LabelAndValue: React.FC<LabelAndValueProps> = ({
         <Box className='standardBottomMargin'>
             <CustomText type='label' className='verticallyCenteredRow'>
                 {icon && (
-                    <Box className='tinyRightMargin' sx={{ width: typography.label.fontSize }}>
+                    <Box className='tinyRightMargin fillHeight verticallyCenteredColumn' sx={{ width: typography.label.fontSize }}>
                         {icon}
                     </Box>
                 )}

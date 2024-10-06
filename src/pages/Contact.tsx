@@ -32,7 +32,6 @@ const Contact = () => {
                         label='Email'
                         icon={<Email
                             size={typography.label.fontSize}
-                            className='tinyRightMargin'
                             color={palette.passiveText}
                         />}
                         value='alexgreen0606@gmail.com'
@@ -41,7 +40,6 @@ const Contact = () => {
                     <LabelAndValue
                         label='Phone'
                         icon={<Phone
-                            className='tinyRightMargin'
                             size={typography.label.fontSize}
                             color={palette.passiveText}
                         />}
@@ -65,9 +63,9 @@ const Contact = () => {
                         label='Quick Links'
                         icon={<Lightning
                             size={typography.label.fontSize}
-                            className='tinyRightMargin'
                             color={palette.passiveText}
-                        />}
+                        />
+                        }
                         value={
                             <Box className='verticallyCenteredColumn'>
                                 <Box className='tinyVerticalMargins'>
