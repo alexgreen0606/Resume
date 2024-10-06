@@ -132,16 +132,12 @@ const Project: React.FC<ProjectProps> = ({
                                 }}
                             >
                                 <iframe
-                                    src={`https://www.youtube.com/embed/${sampleConfig.videoId}?autoplay=1&controls=0&mute=1&loop=1&playlist=${sampleConfig.videoId}&modestbranding=1&showinfo=0`}
+                                    src={`https://www.youtube.com/embed/${sampleConfig.videoId}?autoplay=1&controls=1&mute=1&loop=1&playlist=${sampleConfig.videoId}&modestbranding=1`}
                                     frameBorder="0"
-                                    allow="autoplay; encrypted-media;"
+                                    allowFullScreen
+                                    allow="autoplay; encrypted-media; fullscreen;"
                                 />
                             </Box>
-
-                            // <video width='100%' autoPlay loop controls>
-                            //     <source src={videoSrc} type="video/mp4" />
-                            //     Your browser does not support the demo video tag.
-                            // </video>
                         )}
                     </Box >
 

@@ -40,7 +40,7 @@ const PageContainer: React.FC<PageContainerProps> = ({ children, currPage }) => 
             <Box
                 className='horizontallyCenteredColumn'
                 sx={{
-                    width: 'clamp(300px, 90vw, 1300px)',
+                    width: 'clamp(300px, 96vw, 1300px)',
                     height: 'auto',
                     minHeight: `calc(100vh - clamp(50px, 10vw, 120px) - ${navBarHeight}px)`
                 }}

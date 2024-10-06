@@ -52,7 +52,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
         pageLabel: { fontSize: 'clamp(24px, 5.5vw, 70px)', fontFamily: 'Arial', letterSpacing: 'clamp(-8px, -.4vw, -2px)', wordSpacing: 'clamp(-14px, -.5vw, -4px)', padding: '5px 10px', lineHeight: 1 },
         intenseHeader: { fontSize: 'clamp(16px, 4vw, 50px)', fontFamily: 'Arial' },
         header: { fontSize: 'clamp(15px, 3.75vw, 35px)', fontWeight: 550, cursor: 'default', letterSpacing: 0, fontFamily: 'Arial', color: currentPalette.intenseCustomText },
-        label: { fontSize: 'clamp(14px, 3.5vw, 24px)', fontFamily: 'Arial', cursor: 'default', fontWeight: 600, letterSpacing: 0, color: currentPalette.neautralCustomText },
+        label: { fontSize: 'clamp(12px, 3.5vw, 24px)', fontFamily: 'Arial', cursor: 'default', fontWeight: 600, letterSpacing: 0, color: currentPalette.neautralCustomText },
         content: { fontFamily: 'Arial', fontSize: 'clamp(12px, 3vw, 20px)', lineHeight: 'clamp(16px, 3.5vw, 26px)', color: currentPalette.passiveText, margin: 0 },
         subContent: { color: currentPalette.passiveText, fontSize: 'clamp(8px, 2vw, 14px)' },
         smallButton: { fontSize: 'clamp(10px, 2.5vw, 16px)' },

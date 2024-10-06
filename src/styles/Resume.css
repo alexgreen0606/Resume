@@ -39,7 +39,7 @@
     }
 
     .educationAndSkillsChild {
-        width: clamp(300px, 60vw, 590px);
+        width: clamp(310px, 60vw, 590px);
         height: auto;
         margin-top: clamp(10px, 2vw, 20px);
         margin-bottom: clamp(10px, 2vw, 20px);
@@ -54,8 +54,6 @@
 
     .welcomeMessage {
         margin-top: 0;
-        width: clamp(300px, 60vw, 590px);
-        padding-right: none;
     }
 
     .welcomeImage {

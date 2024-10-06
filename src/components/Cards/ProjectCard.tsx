@@ -99,9 +99,8 @@ const ProjectCard: React.FC<CardProps> = ({
             <Dialog
                 open={dialogOpen}
                 onClose={handleClose}
-                maxWidth="lg"
-                fullWidth
-                PaperProps={{ sx: { backgroundColor: palette.card } }}
+                maxWidth={false}
+                PaperProps={{ sx: { backgroundColor: palette.card, width: 'clamp(300px, 96vw, 1300px)' } }}
             >
                 <Card
                     title={title}

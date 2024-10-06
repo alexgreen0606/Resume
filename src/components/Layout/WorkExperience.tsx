@@ -99,7 +99,7 @@ const WorkExperience: React.FC<WorkExperienceProps> = ({
                                     src={logo || undefined}
                                     alt='company-logo'
                                     className='tinyBottomMargin'
-                                    style={{ height: 'clamp(20px, 4.2vw, 35px)' }}
+                                    style={{ height: 'clamp(14px, 4.2vw, 26px)' }}
                                 />
                             </Box>
                             <Box>
@@ -146,9 +146,8 @@ const WorkExperience: React.FC<WorkExperienceProps> = ({
                                     <Dialog
                                         open={letterOpen}
                                         onClose={handleLetterClose}
-                                        maxWidth="lg"
-                                        fullWidth
-                                        PaperProps={{ className: 'curved', sx: { backgroundColor: palette.card } }}
+                                        maxWidth={false}
+                                        PaperProps={{ sx: { backgroundColor: palette.card, width: 'clamp(300px, 96vw, 1300px)' } }}
                                     >
                                         <Letter
                                             onClose={handleLetterClose}
