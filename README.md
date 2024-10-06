@@ -1,30 +1,41 @@
-# React + TypeScript + Vite
+# Resume :bust_in_silhouette:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Overview
 
-Currently, two official plugins are available:
+This app provides an organized and efficient way to showcase my past experiences while also helping me develop valuable skills in theming and responsiveness. I designed and built the app independently during the summer of 2024.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Resume page to break down my education, hard skills, and professional experience.
+- Portfolio to showcase projects I've worked on in the past, including video demos and code repositories.
+- Contact page providing my email, phone, and linkedin.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Technology Stack
 
-- Configure the top-level `parserOptions` property like this:
+- **React**: Utilized for building the user interface and implementing game logic.
+- **CSS**: Employed for animations and styling, enhancing the visual experience.
+- **HTML5**: Provides the fundamental structure of the application.
+- **Vite**: Chosen for its efficient development environment and fast build times, optimizing app performance.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## Prerequisites
+
+- **Node.js** version 14+ is required.
+
+## Installation and Running the Game
+
+1. Clone the repository:
+```bash
+git clone https://github.com/alexgreen0606/Resume.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open the provided `localhost` in your browser to view my resume!

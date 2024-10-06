@@ -95,7 +95,7 @@ const Portfolio = () => {
                         titleClass='thisAppLogo'
                         docsFolder='ThisApp'
                         technology='React / Vite UX'
-                        githubUrl='https://github.com/alexgreen0606/Learning-Labyrinth'
+                        githubUrl='https://github.com/alexgreen0606/Resume'
                         textColor={palette.green}
                         icon={<User />}
                         specialInfo={
