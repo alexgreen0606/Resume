@@ -18,6 +18,10 @@ interface ProjectProps {
         startDemo: () => void,
         demoActive: boolean
     }
+    sampleConfig: {
+        videoId: string,
+        ratio: string
+    }
 }
 
 const Project: React.FC<ProjectProps> = ({
@@ -25,6 +29,7 @@ const Project: React.FC<ProjectProps> = ({
     specialInfo,
     githubUrl,
     demoConfig,
+    sampleConfig
 }) => {
 
     const { palette, theme, typography } = useTheme()
@@ -32,7 +37,6 @@ const Project: React.FC<ProjectProps> = ({
     const [techStackList, setTechStackList] = useState<string[] | undefined>(undefined)
     const [descriptionModule, setDescriptionModule] = useState<{ default?: ComponentType<{}> } | undefined>(undefined)
     const [lessonsList, setLessonsList] = useState<string[] | undefined>(undefined)
-    const [videoSrc, setVideoSrc] = useState<string | undefined>(undefined);
 
     const isPhoneScreen = useIsPhoneScreen(true)
 
@@ -43,12 +47,10 @@ const Project: React.FC<ProjectProps> = ({
 
             const techStackFilePath = `../../docs/Projects/${docsFolder}/techStack.txt`;
             const descriptionFilePath = `../../docs/Projects/${docsFolder}/description.mdx`;
-            const videoFilePath = `../../docs/Projects/${docsFolder}/demo.mp4`;
             const lessonsFilePath = `../../docs/Projects/${docsFolder}/lessons.txt`;
 
             const techStackFile = allProjectFiles[techStackFilePath];
             const descriptionFile = allProjectFiles[descriptionFilePath];
-            const videoFile = allProjectFiles[videoFilePath];
             const lessonsFile = allProjectFiles[lessonsFilePath];
 
             if (techStackFile) {
@@ -58,11 +60,6 @@ const Project: React.FC<ProjectProps> = ({
             if (descriptionFile) {
                 const thisDescriptionModule = await descriptionFile() as { default: ComponentType<{}> }
                 setDescriptionModule(thisDescriptionModule);
-            }
-
-            if (videoFile) {
-                const videoModule = await videoFile() as { default: string }
-                setVideoSrc(videoModule.default);
             }
 
             if (lessonsFile) {
@@ -75,7 +72,7 @@ const Project: React.FC<ProjectProps> = ({
 
     return (
         <LoadingDataContainer
-            loadedData={[descriptionModule, lessonsList, techStackList, videoSrc]}
+            loadedData={[descriptionModule, lessonsList, techStackList]}
             display={
                 < Box
                     className='fillWidth fillHeight horizontallyCenteredColumn'
@@ -117,10 +114,34 @@ const Project: React.FC<ProjectProps> = ({
                                 )}
                             </Box>
                         ) : (
-                            <video width='100%' autoPlay loop controls>
-                                <source src={videoSrc} type="video/mp4" />
-                                Your browser does not support the demo video tag.
-                            </video>
+                            <Box
+                                id="Demo-Video"
+                                className="fillWidth horizontallyCenteredRow"
+                                sx={{
+                                    position: 'relative',
+                                    paddingBottom: sampleConfig.ratio,
+                                    height: 0,
+                                    overflow: 'hidden',
+                                    '& iframe': {
+                                        position: 'absolute',
+                                        top: 0,
+                                        left: 0,
+                                        width: '100%',
+                                        height: '100%',
+                                    }
+                                }}
+                            >
+                                <iframe
+                                    src={`https://www.youtube.com/embed/${sampleConfig.videoId}?autoplay=1&controls=0&mute=1&loop=1&playlist=${sampleConfig.videoId}&modestbranding=1&showinfo=0`}
+                                    frameBorder="0"
+                                    allow="autoplay; encrypted-media;"
+                                />
+                            </Box>
+
+                            // <video width='100%' autoPlay loop controls>
+                            //     <source src={videoSrc} type="video/mp4" />
+                            //     Your browser does not support the demo video tag.
+                            // </video>
                         )}
                     </Box >
 

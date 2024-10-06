@@ -46,6 +46,10 @@ const Portfolio = () => {
                         githubUrl='https://github.com/alexgreen0606/Cookbook'
                         textColor={palette.orange}
                         technology='Angular / Spring Boot App'
+                        sampleConfig={{
+                            videoId: 'uR4BIvYTaHI',
+                            ratio: '61%'
+                        }}
                     />
                     <ProjectCard
                         title="Learning Labyrinth"
@@ -56,6 +60,10 @@ const Portfolio = () => {
                         font='Arial'
                         textColor={palette.blue}
                         icon={<Bot />}
+                        sampleConfig={{
+                            videoId: 'nUfHPnIClnM',
+                            ratio: '61%'
+                        }}
                     />
                     <ProjectCard
                         title="Asteroids"
@@ -76,6 +84,10 @@ const Portfolio = () => {
                             startDemo: startDemo,
                             demoActive: demoActive
                         }}
+                        sampleConfig={{
+                            videoId: 'D6Py1JXdgxk',
+                            ratio: '59%'
+                        }}
                     />
                     <ProjectCard
                         title="This App"
@@ -92,6 +104,10 @@ const Portfolio = () => {
                                 value={<Toggle onChange={toggleTheme} checked={theme === 'dark'} />}
                             />
                         }
+                        sampleConfig={{
+                            videoId: 'uR4BIvYTaHI',
+                            ratio: '61%'
+                        }}
                     />
                 </Box>
                 <Box className='fillWidth' sx={{ display: 'flex', justifyContent: 'flex-end' }}>

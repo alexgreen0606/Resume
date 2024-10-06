@@ -22,6 +22,10 @@ interface CardProps {
         startDemo:  () => void
         demoActive: boolean
     }
+    sampleConfig: {
+        videoId: string,
+        ratio: string
+    }
 }
 
 const ProjectCard: React.FC<CardProps> = ({
@@ -35,7 +39,8 @@ const ProjectCard: React.FC<CardProps> = ({
     textColor,
     font,
     icon,
-    technology
+    technology,
+    sampleConfig
 }) => {
 
     const { palette } = useTheme()
@@ -110,6 +115,7 @@ const ProjectCard: React.FC<CardProps> = ({
                         demoConfig={demoConfig}
                         specialInfo={specialInfo}
                         githubUrl={githubUrl}
+                        sampleConfig={sampleConfig}
                     />
                 </Card>
             </Dialog>
