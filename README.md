@@ -12,8 +12,8 @@ This app provides an organized and efficient way to showcase my past experiences
 
 ## Technology Stack
 
-- **React**: Utilized for building the user interface and implementing game logic.
-- **CSS**: Employed for animations and styling, enhancing the visual experience.
+- **React**: Utilized for building the user interface.
+- **CSS**: Employed for styling and responsiveness, enhancing the visual experience on all devices.
 - **HTML5**: Provides the fundamental structure of the application.
 - **Vite**: Chosen for its efficient development environment and fast build times, optimizing app performance.
 
