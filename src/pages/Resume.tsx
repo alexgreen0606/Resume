@@ -1,4 +1,4 @@
-import Headshot from '../images/Headshot.jpg'
+import Headshot from '../images/headshot_resume.jpg'
 import PageContainer from '../components/PageContainer/PageContainer';
 import { Box, Divider } from '@mui/material'
 import Skill from '../components/MicroElements/Skill';

@@ -1,24 +1,24 @@
-.monitorRowPhoneColumnContainer {
+.contactContainer {
     width: 100%;
     display: flex;
     justify-content: space-between;
 }
 
-.monitorRowPhoneColumnContainerChild {
+.contactCard {
     width: calc(50% - clamp(15px, 4vw, 26px));
 }
 
 .image {
-    width: clamp(300px, 35vw, 600px);
+    width: clamp(300px, 45vw, 600px);
 }
 
 @media (max-width: 1200px) {
-    .monitorRowPhoneColumnContainer {
+    .contactContainer {
         flex-flow: column !important;
         align-items: center !important;
     }
 
-    .monitorRowPhoneColumnContainerChild {
+    .contactCard {
         width: clamp(300px, 60vw, 590px);
     }
 }

@@ -1,7 +1,7 @@
 import { Email, Lightning, LogoLinkedin, Phone, SendAlt } from '@carbon/icons-react';
 import PageContainer from '../components/PageContainer/PageContainer';
 import { Box, Divider } from '@mui/material';
-import Headshot from '../images/Headshot.jpg'
+import Headshot from '../images/headshot_contact.jpg'
 import Card from '../components/Cards/Card';
 import LinkedInIcon from '../components/Icons/LinkedIn';
 import { useTheme } from '../styles/ThemeContext';
@@ -22,10 +22,10 @@ const Contact = () => {
 
     return (
         <PageContainer currPage='contact'>
-            <Box className='monitorRowPhoneColumnContainer'>
+            <Box className='contactContainer'>
                 <Card
                     title='Contact Me'
-                    className='monitorRowPhoneColumnContainerChild'
+                    className='contactCard'
                     smallCard
                 >
                     <LabelAndValue
@@ -93,7 +93,7 @@ const Contact = () => {
                         }
                     />
                 </Card>
-                <Box className='monitorRowPhoneColumnContainerChild pageVerticalMargins fullyCenteredRow'>
+                <Box className='contactCard pageVerticalMargins fullyCenteredRow'>
                     <img
                         src={Headshot}
                         alt='headshot'
