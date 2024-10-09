@@ -105,8 +105,8 @@ const Portfolio = () => {
                             />
                         }
                         sampleConfig={{
-                            videoId: 'uR4BIvYTaHI',
-                            ratio: '61%'
+                            videoId: 'eZJrKdgLeKs',
+                            ratio: '59.6%'
                         }}
                     />
                 </Box>
