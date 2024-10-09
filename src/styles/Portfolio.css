@@ -1,7 +1,3 @@
-.cardsContainer {
-    width: 100%;
-}
-
 .cards {
     display: flex;
     flex-flow: row;
@@ -10,15 +6,22 @@
     flex-wrap: wrap;
 }
 
-@media (max-width: 1200px) {
+.contactButton {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
 
-    .cardsContainer {
-        width: fit-content;
-    }
+@media (max-width: 1200px) {
 
     .cards {
         flex-flow: column;
         align-items: center;
+        width: 90%;
+    }
+
+    .contactButton {
+        width: 90%;
     }
 }
 

@@ -32,11 +32,11 @@ const Portfolio = () => {
 
     return (
         <PageContainer currPage='portfolio'>
-            <Box className='cardsContainer'>
+            <Box className='fillWidth horizontallyCenteredColumn'>
                 <Card className='fillWidth pageVerticalMargins'>
                     <MarkdownInterpreter markdownModule={Welcome} />
                 </Card>
-                <Box className='cards'>
+                <Box className='cards fillWidth pageVerticalMargins'>
                     <ProjectCard
                         title="Cookbook"
                         onClick={endDemo}
@@ -110,7 +110,7 @@ const Portfolio = () => {
                         }}
                     />
                 </Box>
-                <Box className='fillWidth' sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+                <Box className='contactButton pageVerticalMargins'>
                     <CustomButton type='primary' size='medium' onClick={() => navigate('/contact')}>
                         Contact Me
                     </CustomButton>

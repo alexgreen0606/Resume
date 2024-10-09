@@ -4,6 +4,7 @@ import Project from '../Layout/Project';
 import { useTheme } from '../../styles/ThemeContext';
 import CustomText from '../Text/CustomText';
 import '../../styles/ProjectCard.css'
+import LoadingDataContainer from '../MicroElements/LoadingDataContainer';
 
 interface CardProps {
     title: string
@@ -64,55 +65,59 @@ const ProjectCard: React.FC<CardProps> = ({
         getImage()
     }, [])
 
-    if (!projImagePath) return
-
     return (
-        <Box>
-            <Box
-                className='pageVerticalMargins horizontalMargins card curved'
-                sx={{
-                    backgroundImage: `url(${projImagePath})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'bottom',
-                    boxShadow: `clamp(10px, 5vw, 40px) clamp(10px, 5vw, 40px) clamp(6px, 4vw, 30px) ${palette.shadow}`,
-                    transition: 'all 0.5s ease-in-out',
-                    cursor: 'pointer',
-                    '&:hover': {
-                        transform: 'scale(1.07)'
-                    }
-                }}
-                onClick={handleClickOpen}>
-                <Box className="fullyCenteredColumn fillHeight" sx={{ textAlign: 'center' }}>
-                    <CustomText
-                        type='intenseHeader'
-                        sx={{ color: textColor, fontFamily: font }}
-                        className={titleClass}
+        <LoadingDataContainer
+            loadedData={[projImagePath]}
+            display={
+                <Box className='card horizontallyCenteredColumn'>
+                    <Box
+                        className='fillWidth pageVerticalMargins horizontalMargins card curved'
+                        sx={{
+                            backgroundImage: `url(${projImagePath})`,
+                            backgroundSize: 'cover',
+                            position: 'relative',
+                            backgroundPosition: 'bottom',
+                            boxShadow: `clamp(10px, 5vw, 40px) clamp(10px, 5vw, 40px) clamp(6px, 4vw, 30px) ${palette.shadow}`,
+                            transition: 'all 0.5s ease-in-out',
+                            cursor: 'pointer',
+                            '&:hover': {
+                                transform: 'scale(1.07)',
+                            }
+                        }}
+                        onClick={handleClickOpen}>
+                        <Box className="fullyCenteredColumn fillHeight" sx={{ textAlign: 'center' }}>
+                            <CustomText
+                                type='intenseHeader'
+                                sx={{ color: textColor, fontFamily: font }}
+                                className={titleClass}
+                            >
+                                {title}
+                            </CustomText>
+                            <CustomText type='content' sx={{ color: palette.projectType }}>
+                                {technology}
+                            </CustomText>
+                        </Box>
+                    </Box>
+                    <Dialog
+                        open={dialogOpen}
+                        onClose={handleClose}
+                        maxWidth={false}
+                        PaperProps={{ sx: { backgroundColor: palette.card, width: 'clamp(290px, 93vw, 1280px)' } }}
                     >
-                        {title}
-                    </CustomText>
-                    <CustomText type='content' sx={{ color: palette.projectType }}>
-                        {technology}
-                    </CustomText>
+                        <Project
+                            title={title}
+                            icon={icon}
+                            handleClose={handleClose}
+                            docsFolder={docsFolder}
+                            demoConfig={demoConfig}
+                            specialInfo={specialInfo}
+                            githubUrl={githubUrl}
+                            sampleConfig={sampleConfig}
+                        />
+                    </Dialog>
                 </Box>
-            </Box>
-            <Dialog
-                open={dialogOpen}
-                onClose={handleClose}
-                maxWidth={false}
-                PaperProps={{ sx: { backgroundColor: palette.card, width: 'clamp(290px, 93vw, 1280px)' } }}
-            >
-                <Project
-                    title={title}
-                    icon={icon}
-                    handleClose={handleClose}
-                    docsFolder={docsFolder}
-                    demoConfig={demoConfig}
-                    specialInfo={specialInfo}
-                    githubUrl={githubUrl}
-                    sampleConfig={sampleConfig}
-                />
-            </Dialog>
-        </Box>
+            }
+        />
     )
 }
 
