@@ -8,9 +8,13 @@ import CustomButton from '../Buttons/CustomButton';
 import useIsPhoneScreen from '../../hooks/useIsPhoneScreen';
 import { getIconSizeStyles } from '../../utils/sizeUtils';
 import LoadingDataContainer from '../MicroElements/LoadingDataContainer';
+import Card from '../Cards/Card';
 
 interface ProjectProps {
     docsFolder: string
+    title: string
+    icon: React.ReactNode
+    handleClose: () => void
     githubUrl: string
     specialInfo?: React.ReactNode
     demoConfig?: {
@@ -27,6 +31,9 @@ interface ProjectProps {
 const Project: React.FC<ProjectProps> = ({
     docsFolder,
     specialInfo,
+    title,
+    icon,
+    handleClose,
     githubUrl,
     demoConfig,
     sampleConfig
@@ -74,102 +81,110 @@ const Project: React.FC<ProjectProps> = ({
         <LoadingDataContainer
             loadedData={[descriptionModule, lessonsList, techStackList]}
             display={
-                < Box
-                    className='fillWidth fillHeight horizontallyCenteredColumn'
-                    sx={{ display: 'flex', flexFlow: 'column', boxSizing: 'border-box' }
-                    }
+                <Card
+                    title={title}
+                    popupCard
+                    width='100%'
+                    icon={icon}
+                    onClose={handleClose}
                 >
-
-                    {/* Demo Video or Module */}
                     < Box
-                        className='horizontallyCenteredColumn'
-                        sx={{ position: 'relative', width: 'clamp(1px, 100%, 900px)' }}
+                        className='fillWidth fillHeight horizontallyCenteredColumn'
+                        sx={{ display: 'flex', flexFlow: 'column', boxSizing: 'border-box' }
+                        }
                     >
-                        {demoConfig && !isPhoneScreen ? (
-                            <Box className='fullyCenteredColumn'>
-                                {demoConfig.module}
-                                {!demoConfig.demoActive && (
-                                    <Box
-                                        className='fillWidth fillHeight fullyCenteredColumn'
-                                        sx={{ position: 'absolute', top: 0, zIndex: 1000 }}
-                                    >
-                                        {theme === 'dark' && (
-                                            <Box sx={{
-                                                opacity: .5,
-                                                backgroundColor: palette.background,
-                                                position: 'absolute',
-                                                top: 0,
-                                                width: 'clamp(1px, 80vw, 900px)',
-                                                height: 'clamp(240px, 40vw, 500px)'
-                                            }} />
-                                        )}
-                                        <CustomButton
-                                            type='secondary'
-                                            size='small'
-                                            onClick={() => demoConfig.startDemo()}
-                                        >
-                                            <Play size={getIconSizeStyles(typography.smallButton.fontSize)} className='tinyRightMargin' />Try it out
-                                        </CustomButton>
-                                    </Box>
-                                )}
-                            </Box>
-                        ) : (
-                            <Box
-                                id="Demo-Video"
-                                className="fillWidth horizontallyCenteredRow"
-                                sx={{
-                                    position: 'relative',
-                                    paddingBottom: sampleConfig.ratio,
-                                    height: 0,
-                                    overflow: 'hidden',
-                                    '& iframe': {
-                                        position: 'absolute',
-                                        top: 0,
-                                        left: 0,
-                                        width: '100%',
-                                        height: '100%',
-                                    }
-                                }}
-                            >
-                                <iframe
-                                    src={`https://www.youtube.com/embed/${sampleConfig.videoId}?autoplay=1&controls=1&mute=1&loop=1&playlist=${sampleConfig.videoId}&modestbranding=1rel=0`}
-                                    frameBorder="0"
-                                    allowFullScreen
-                                    allow="autoplay; encrypted-media; fullscreen;"
-                                />
-                            </Box>
-                        )}
-                    </Box >
 
-                    {/* Special Details */}
-                    {
-                        specialInfo && (
-                            <Box className='fillWidth standardTopMargin'>
-                                {specialInfo}
-                            </Box>
-                        )
-                    }
-
-                    {/* Details */}
-                    <Details
-                        description={descriptionModule || {}}
-                        lessons={lessonsList || []}
-                        tech={techStackList || []}
-                        noMargins={!!specialInfo}
-                    />
-
-                    {/* Github Button */}
-                    <Box className='verticallyCenteredRow fillWidth' sx={{ justifyContent: 'flex-end' }}>
-                        <CustomButton
-                            type='secondary'
-                            size='small'
-                            onClick={() => window.open(githubUrl, '_blank', 'noopener,noreferrer')}
+                        {/* Demo Video or Module */}
+                        < Box
+                            className='horizontallyCenteredColumn'
+                            sx={{ position: 'relative', width: 'clamp(1px, 100%, 900px)' }}
                         >
-                            <LogoGithub size={getIconSizeStyles(typography.smallButton.fontSize)} className='tinyRightMargin' />
-                            View The Code
-                        </CustomButton>
-                    </Box>
-                </Box >
+                            {demoConfig && !isPhoneScreen ? (
+                                <Box className='fullyCenteredColumn'>
+                                    {demoConfig.module}
+                                    {!demoConfig.demoActive && (
+                                        <Box
+                                            className='fillWidth fillHeight fullyCenteredColumn'
+                                            sx={{ position: 'absolute', top: 0, zIndex: 1000 }}
+                                        >
+                                            {theme === 'dark' && (
+                                                <Box sx={{
+                                                    opacity: .5,
+                                                    backgroundColor: palette.background,
+                                                    position: 'absolute',
+                                                    top: 0,
+                                                    width: 'clamp(1px, 80vw, 900px)',
+                                                    height: 'clamp(240px, 40vw, 500px)'
+                                                }} />
+                                            )}
+                                            <CustomButton
+                                                type='secondary'
+                                                size='small'
+                                                onClick={() => demoConfig.startDemo()}
+                                            >
+                                                <Play size={getIconSizeStyles(typography.smallButton.fontSize)} className='tinyRightMargin' />Try it out
+                                            </CustomButton>
+                                        </Box>
+                                    )}
+                                </Box>
+                            ) : (
+                                <Box
+                                    id="Demo-Video"
+                                    className="fillWidth horizontallyCenteredRow"
+                                    sx={{
+                                        position: 'relative',
+                                        paddingBottom: sampleConfig.ratio,
+                                        height: 0,
+                                        overflow: 'hidden',
+                                        '& iframe': {
+                                            position: 'absolute',
+                                            top: 0,
+                                            left: 0,
+                                            width: '100%',
+                                            height: '100%',
+                                        }
+                                    }}
+                                >
+                                    <iframe
+                                        src={`https://www.youtube.com/embed/${sampleConfig.videoId}?autoplay=1&controls=1&mute=1&loop=1&playlist=${sampleConfig.videoId}&modestbranding=1rel=0`}
+                                        frameBorder="0"
+                                        allowFullScreen
+                                        allow="autoplay; encrypted-media; fullscreen;"
+                                    />
+                                </Box>
+                            )}
+                        </Box >
+
+                        {/* Special Details */}
+                        {
+                            specialInfo && (
+                                <Box className='fillWidth standardTopMargin'>
+                                    {specialInfo}
+                                </Box>
+                            )
+                        }
+
+                        {/* Details */}
+                        <Details
+                            description={descriptionModule || {}}
+                            lessons={lessonsList || []}
+                            tech={techStackList || []}
+                            noMargins={!!specialInfo}
+                        />
+
+                        {/* Github Button */}
+                        <Box className='verticallyCenteredRow fillWidth' sx={{ justifyContent: 'flex-end' }}>
+                            <CustomButton
+                                type='secondary'
+                                size='small'
+                                onClick={() => window.open(githubUrl, '_blank', 'noopener,noreferrer')}
+                            >
+                                <LogoGithub size={getIconSizeStyles(typography.smallButton.fontSize)} className='tinyRightMargin' />
+                                View The Code
+                            </CustomButton>
+                        </Box>
+                    </Box >
+                </Card>
             }
         />
 

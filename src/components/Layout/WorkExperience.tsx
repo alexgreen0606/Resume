@@ -147,7 +147,7 @@ const WorkExperience: React.FC<WorkExperienceProps> = ({
                                         open={letterOpen}
                                         onClose={handleLetterClose}
                                         maxWidth={false}
-                                        PaperProps={{ sx: { backgroundColor: palette.card, width: 'clamp(300px, 96vw, 1300px)', margin: 0, maxWidth: 'none' } }}
+                                        PaperProps={{ sx: { backgroundColor: palette.card, width: 'clamp(290px, 93vw, 1280px)', margin: 0, maxWidth: 'none' } }}
                                     >
                                         <Letter
                                             onClose={handleLetterClose}

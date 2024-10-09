@@ -1,7 +1,6 @@
 import { Box, Dialog } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import Project from '../Layout/Project';
-import Card from './Card';
 import { useTheme } from '../../styles/ThemeContext';
 import CustomText from '../Text/CustomText';
 import '../../styles/ProjectCard.css'
@@ -19,7 +18,7 @@ interface CardProps {
     specialInfo?: React.ReactNode
     demoConfig?: {
         module: React.ReactNode
-        startDemo:  () => void
+        startDemo: () => void
         demoActive: boolean
     }
     sampleConfig: {
@@ -100,23 +99,18 @@ const ProjectCard: React.FC<CardProps> = ({
                 open={dialogOpen}
                 onClose={handleClose}
                 maxWidth={false}
-                PaperProps={{ sx: { backgroundColor: palette.card, width: 'clamp(300px, 96vw, 1300px)' } }}
+                PaperProps={{ sx: { backgroundColor: palette.card, width: 'clamp(290px, 93vw, 1280px)' } }}
             >
-                <Card
+                <Project
                     title={title}
-                    popupCard
-                    width='100%'
                     icon={icon}
-                    onClose={handleClose}
-                >
-                    <Project
-                        docsFolder={docsFolder}
-                        demoConfig={demoConfig}
-                        specialInfo={specialInfo}
-                        githubUrl={githubUrl}
-                        sampleConfig={sampleConfig}
-                    />
-                </Card>
+                    handleClose={handleClose}
+                    docsFolder={docsFolder}
+                    demoConfig={demoConfig}
+                    specialInfo={specialInfo}
+                    githubUrl={githubUrl}
+                    sampleConfig={sampleConfig}
+                />
             </Dialog>
         </Box>
     )
