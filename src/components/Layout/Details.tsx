@@ -1,4 +1,4 @@
-import { Box, useMediaQuery } from '@mui/material';
+import { Box } from '@mui/material';
 import React, { ComponentType } from 'react';
 import MarkdownInterpreter from '../Text/MarkdownInterpreter';
 import CustomList from '../MicroElements/CustomList';

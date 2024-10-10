@@ -1,16 +1,13 @@
-import { Box, Slider } from '@mui/material';
+import { Box } from '@mui/material';
 import React from 'react';
 import CustomText from '../Text/CustomText';
-import { useTheme } from '../../styles/ThemeContext';
 
 interface SkillProps {
     title: string,
     strength: number
 }
 
-const Skill: React.FC<SkillProps> = ({ title, strength }) => {
-
-    const { palette } = useTheme()
+const Skill: React.FC<SkillProps> = ({ title }) => {
 
     return (
         <Box className='fillWidth horizontallyCenteredColumn'>
