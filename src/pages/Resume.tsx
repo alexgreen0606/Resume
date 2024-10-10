@@ -103,6 +103,28 @@ const Resume = () => {
                         </Box>
                     </Box>
 
+                    {/* Work Experience */}
+                    <Card title='Professional Experience' noPadding icon={<Portfolio />} className='fillWidth'>
+                        <Box>
+                            {workExperiences.map((experience, index) => (
+                                <Box className='fillWidth'>
+                                    <WorkExperience
+                                        role={experience.role}
+                                        dates={experience.dates}
+                                        docFolderName={experience.docFolderName}
+                                        recommendationLetterConfig={experience.recommendationLetterConfig}
+                                        curvedBottomEdge={index === (workExperiences.length - 1)}
+                                    />
+                                    {index !== workExperiences.length - 1 && (
+                                        <Box className='fillWidth'>
+                                            <Divider sx={{ backgroundColor: palette.passiveText, width: '100%' }} />
+                                        </Box>
+                                    )}
+                                </Box>
+                            ))}
+                        </Box>
+                    </Card>
+
                     {/* Education and Skills */}
                     <Box className="educationAndSkills">
                         <Card
@@ -136,7 +158,7 @@ const Resume = () => {
                             </Box>
                         </Card>
                         <Card
-                            title="Key Skills"
+                            title="Skills"
                             noMargins
                             smallCard
                             icon={<SkillLevel />}
@@ -148,32 +170,10 @@ const Resume = () => {
                                         <Skill title={strength.title} strength={strength.strength} />
                                     )
                                 }
-                                doubleColumn
+                                columns={3}
                             />
                         </Card>
                     </Box >
-
-                    {/* Work Experience */}
-                    <Card title='Professional Experience' noPadding icon={<Portfolio />} className='fillWidth'>
-                        <Box>
-                            {workExperiences.map((experience, index) => (
-                                <Box className='fillWidth'>
-                                    <WorkExperience
-                                        role={experience.role}
-                                        dates={experience.dates}
-                                        docFolderName={experience.docFolderName}
-                                        recommendationLetterConfig={experience.recommendationLetterConfig}
-                                        curvedBottomEdge={index === (workExperiences.length - 1)}
-                                    />
-                                    {index !== workExperiences.length - 1 && (
-                                        <Box className='fillWidth'>
-                                            <Divider sx={{ backgroundColor: palette.passiveText, width: '100%' }} />
-                                        </Box>
-                                    )}
-                                </Box>
-                            ))}
-                        </Box>
-                    </Card>
 
                     {/* Resume Download and Portfolio Buttons */}
                     <Box className='fillWidth verticallyCenteredRow spacedApart' sx={{ flexWrap: 'wrap' }}>

@@ -4,6 +4,7 @@ import MarkdownInterpreter from '../Text/MarkdownInterpreter';
 import CustomList from '../MicroElements/CustomList';
 import '../../styles/Details.css';
 import LabelAndValue from '../MicroElements/LabelAndValue';
+import useIsPhoneScreen from '../../hooks/useIsPhoneScreen';
 
 interface DetailsProps {
     description: {
@@ -21,7 +22,7 @@ const Details: React.FC<DetailsProps> = ({
     noMargins
 }) => {
 
-    const isSmallScreen = useMediaQuery('(max-width:600px)');
+    const isSmallScreen = useIsPhoneScreen(false)
 
     return (
         <Box className={noMargins ? '' : 'standardVerticalMargins'}>
@@ -36,7 +37,7 @@ const Details: React.FC<DetailsProps> = ({
                     <LabelAndValue
                         label='Experience Gained'
                         value={
-                            <CustomList items={lessons} />
+                            <CustomList columns={1} items={lessons} />
                         }
                     />
                 </Box>
@@ -44,7 +45,7 @@ const Details: React.FC<DetailsProps> = ({
                     <LabelAndValue
                         label='Technologies'
                         value={
-                            <CustomList doubleColumn={isSmallScreen} dense items={tech} />
+                            <CustomList columns={isSmallScreen ? 2 : 1} items={tech} />
                         }
                     />
 

@@ -6,3 +6,13 @@ CSS 100
 MySQL 85
 JUnit 70
 Angular 70
+Redux 1
+Docker 1
+JPA_Repository 1
+Jenkins 1
+Azure 1
+GitHub_/_GitLab 1
+HTML5 1
+Python 1
+Jira 1
+Typescript 1

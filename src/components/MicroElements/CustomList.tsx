@@ -5,39 +5,46 @@ import { useTheme } from '../../styles/ThemeContext';
 import CustomText from '../Text/CustomText';
 
 interface CustomListProps {
-    items: string[] | React.ReactNode[] | undefined,
-    doubleColumn?: boolean,
-    dense?: boolean
+    items: string[] | React.ReactNode[] | undefined;
+    columns?: number;
+    centerText?: boolean;
 }
 
-const CustomList: React.FC<CustomListProps> = ({ items, doubleColumn, dense }) => {
+const CustomList: React.FC<CustomListProps> = ({ items, columns = 1, centerText }) => {
 
-    const { palette } = useTheme()
+    const { palette } = useTheme();
 
-    // If the string has a colon, bold the words preceding the colon and return the new string. Otherwise, just return the string
+    // If the string has a colon, bold the words preceding the colon and return the new string. 
+    // Otherwise, just return the string
     const renderString = (content: string) => {
         if (content.includes(':')) {
-            const parsedContent = content.split(':')
-            const label = parsedContent[0]
-            const value = parsedContent[1]
+            const parsedContent = content.split(':');
+            const label = parsedContent[0];
+            const value = parsedContent[1];
             return (
                 <span>
                     <strong style={{ color: palette.passiveText }}>{label}</strong>:{value}
                 </span>
-            )
+            );
         } else {
-            return content
+            return content;
         }
-    }
+    };
 
     const renderListItems = (listItems: string[] | React.ReactNode[]) => (
-        <List dense={dense} sx={{ display: 'flex', flexWrap: 'wrap', padding: 0 }}>
+        <List sx={{ display: 'flex', flexWrap: 'wrap', padding: 0 }}>
             {listItems.map((item, index) => (
                 <ListItem
                     key={`${index}-item-${item}`}
                     disablePadding
                     className='standardBottomPadded'
-                    sx={{ width: doubleColumn ? '50%' : '100%', display: 'flex', alignItems: 'center' }}
+                    sx={{
+                        width: `${100 / columns}%`,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: centerText ? 'center' : 'flex-start',
+                        textAlign: centerText ? 'center' : 'left'
+                    }}
                 >
                     {typeof item === 'string' ? (
                         <>
@@ -58,7 +65,7 @@ const CustomList: React.FC<CustomListProps> = ({ items, doubleColumn, dense }) =
         </List>
     );
 
-    if (!items) return
+    if (!items) return null;
 
     return (
         <Box className='fillWidth'>

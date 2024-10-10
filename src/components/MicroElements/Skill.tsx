@@ -21,7 +21,7 @@ const Skill: React.FC<SkillProps> = ({ title, strength }) => {
                 <CustomText type='content'>
                     {title}
                 </CustomText>
-                <Slider
+                {/* <Slider
                     disabled
                     value={strength}
                     sx={{
@@ -34,7 +34,7 @@ const Skill: React.FC<SkillProps> = ({ title, strength }) => {
                         "&.Mui-disabled": {
                             color: palette.green
                         },
-                    }} />
+                    }} /> */}
             </Box>
         </Box>
     );

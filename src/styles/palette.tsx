@@ -19,7 +19,7 @@ export const darkPalette = {
     tooltipBackground: 'rgb(60,60,60)',
     projectType: 'rgb(225, 225, 225)',
 
-    shadow: 'rgb(15, 15, 15)'
+    shadow: 'rgb(10, 10, 10)'
 };
 
 export const lightPalette = {
