@@ -69,9 +69,9 @@ const ProjectCard: React.FC<CardProps> = ({
         <LoadingDataContainer
             loadedData={[projImagePath]}
             display={
-                <Box className='card horizontallyCenteredColumn'>
+                <Box className='card pageVerticalMargins horizontallyCenteredColumn'>
                     <Box
-                        className='fillWidth pageVerticalMargins horizontalMargins card curved'
+                        className='fillWidth horizontalMargins card curved'
                         sx={{
                             backgroundImage: `url(${projImagePath})`,
                             backgroundSize: 'cover',
