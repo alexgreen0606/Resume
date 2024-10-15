@@ -2,4 +2,4 @@ App Design: Fully developed the app from concept to deployment, handling all asp
 Dynamic Markdown Display: The app dynamically loads and displays content from markdown files using MDX-JS, ensuring flexibility in updating and organizing content.
 Theming: Implemented both light and dark modes using theme context. Users can easily switch between themes using the toggle above.
 Responsiveness: Applied media queries to ensure the layout and sizing adapt smoothly across all devices, providing a clean and seamless user experience. You can explore the different layouts in the demo above.
-App Deployment: TODO
+App Deployment: Successfully deployed the app using GitHub Pages. The domain was registered and managed through GoDaddy, integrating with GitHub Pages to point the custom domain to the deployed app. This setup ensures the app is publicly accessible under a user-friendly URL, with the deployment process automated through GitHub actions for continuous integration.
