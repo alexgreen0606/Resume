@@ -25,7 +25,7 @@ import LoadingDataContainer from '../components/MicroElements/LoadingDataContain
 const workExperiences = [
     {
         role: 'UX Developer',
-        dates: 'February 2024 - Current',
+        dates: 'February 2024 - Present',
         docFolderName: 'Medtronic',
         recommendationLetterConfig: {
             author: 'Brian Nelb',
