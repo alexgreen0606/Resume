@@ -1,7 +1,9 @@
-.asteroids {
+.scrolling-background {
   background-image: url('./images/stars.jpeg');
+  height: 100%;
+  width: 100%;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
   overflow: hidden;
   position: relative;
 }

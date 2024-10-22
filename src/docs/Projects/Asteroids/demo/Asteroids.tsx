@@ -64,7 +64,7 @@ interface AsteroidsProps {
  * with its laser to earn points, or dodge the asteroids. If the ship collides with an asteroid, the game is over. Once the score reaches a multiple of the powerup interval,
  * a powerup ball will fall from the top of the screen, allowing the ship to absorb it and increase its firing speed.
  */
-const Asteroids: React.FC<AsteroidsProps> = ({ gameWidth = '100vw', gameHeight = '100vh', pauseGame = false }) => {
+const Asteroids: React.FC<AsteroidsProps> = ({ gameWidth = '50vw', gameHeight = '50vh', pauseGame = false }) => {
 
   // all refs are used for calculating collisions between game elements
   const shipRef = useRef<HTMLImageElement>(null);
@@ -420,8 +420,24 @@ const Asteroids: React.FC<AsteroidsProps> = ({ gameWidth = '100vw', gameHeight =
     };
   }, [asteroids, lasers]);
 
+  /**
+   * Handles background movement.
+   */
+  useEffect(() => {
+    let scrollPosition = 0;
+
+    const scrollInterval = setInterval(() => {
+      scrollPosition += 3;
+      if (containerRef.current && gameActive) {
+        containerRef.current.style.backgroundPositionY = `${scrollPosition}px`;
+      }
+    }, 30);
+
+    return () => clearInterval(scrollInterval);
+  }, [gameActive]);
+
   return (
-    <div ref={containerRef} className='asteroids' style={{ width: gameWidth, height: gameHeight }}>
+    <div ref={containerRef} className='scrolling-background' style={{ width: gameWidth, height: gameHeight }}>
       {!gameOver && (
         <>
           {/* Scoreboard */}
@@ -540,7 +556,8 @@ const Asteroids: React.FC<AsteroidsProps> = ({ gameWidth = '100vw', gameHeight =
           </div>
         )
       }
-    </div >
+
+    </div>
   );
 }
 
