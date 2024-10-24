@@ -1,6 +1,6 @@
 Remote Development: Delivered full-stack code updates in 10-day sprints for a React and Java Spring Boot application hosted on Azure.
 
-Feature Implementation: Enhanced user experience by adding new features to search bars, filter options, and patient profiles.
+Feature Implementation: Enhanced user experience by implementing new features for search bars, filter options, and patient profiles, reducing patient search times by 50%.
 
 Back-End Acclimatization: Improved back-end functionality by resolving defects and cleaning up legacy code.
 

@@ -26,12 +26,12 @@ const Details: React.FC<DetailsProps> = ({
 
     return (
         <Box className={noMargins ? '' : 'standardVerticalMargins'}>
-            <LabelAndValue
+            {/* <LabelAndValue
                 label='Summary'
                 value={
                     <MarkdownInterpreter markdownModule={description} />
                 }
-            />
+            /> */}
             <Box className='experienceAndTech'>
                 <Box className='experience'>
                     <LabelAndValue
