@@ -1,5 +1,5 @@
 import { Box, Dialog, IconButton } from '@mui/material';
-import React, { ComponentType, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Letter from './Letter';
 import { ChevronDown, ChevronUp, Document } from '@carbon/icons-react';
 import { readCustomTextToArray } from '../../utils/textUtils';
@@ -36,7 +36,6 @@ const WorkExperience: React.FC<WorkExperienceProps> = ({
 
     const [lessons, setLessons] = useState<string[]>([])
     const [tech, setTech] = useState<string[]>([])
-    const [description, setDescription] = useState<{ default: ComponentType<{}> } | null>(null)
     const [logo, setLogo] = useState<string | null>(null)
 
     const [showDetails, setShowDetails] = useState(false)
@@ -51,9 +50,6 @@ const WorkExperience: React.FC<WorkExperienceProps> = ({
                 if (path.includes(docFolderName)) {
                     if (path.includes('lessons.txt')) {
                         setLessons(await readCustomTextToArray(importFunc))
-                    } else if (path.includes('description.mdx')) {
-                        const descriptionModule = await importFunc() as { default: ComponentType<{}> }
-                        setDescription(descriptionModule)
                     } else if (path.includes('tech.txt')) {
                         setTech(await readCustomTextToArray(importFunc))
                     } else if (path.includes('logo.png')) {
@@ -74,7 +70,7 @@ const WorkExperience: React.FC<WorkExperienceProps> = ({
 
     return (
         <LoadingDataContainer
-            loadedData={[description, logo]}
+            loadedData={[logo]}
             display={
                 <Box>
                     <Box
@@ -122,7 +118,6 @@ const WorkExperience: React.FC<WorkExperienceProps> = ({
                     {showDetails && (
                         <Box className='standardBottomPadded standardHorizontalPadded'>
                             <Details
-                                description={description || {}}
                                 lessons={lessons}
                                 tech={tech}
                             />

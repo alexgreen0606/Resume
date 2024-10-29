@@ -7,7 +7,7 @@ import LabelAndValue from '../MicroElements/LabelAndValue';
 import useIsPhoneScreen from '../../hooks/useIsPhoneScreen';
 
 interface DetailsProps {
-    description: {
+    description?: {
         default?: ComponentType<{}>;
     };
     lessons: string[];
@@ -26,12 +26,14 @@ const Details: React.FC<DetailsProps> = ({
 
     return (
         <Box className={noMargins ? '' : 'standardVerticalMargins'}>
-            {/* <LabelAndValue
-                label='Summary'
-                value={
-                    <MarkdownInterpreter markdownModule={description} />
-                }
-            /> */}
+            {description && (
+                <LabelAndValue
+                    label='Summary'
+                    value={
+                        <MarkdownInterpreter markdownModule={description} />
+                    }
+                />
+            )}
             <Box className='experienceAndTech'>
                 <Box className='experience'>
                     <LabelAndValue
