@@ -155,6 +155,18 @@ const Project: React.FC<ProjectProps> = ({
                             )}
                         </Box >
 
+                        {/* Github Button */}
+                        <Box className='verticallyCenteredRow fillWidth standardTopMargin'>
+                            <CustomButton
+                                type='secondary'
+                                size='small'
+                                onClick={() => window.open(githubUrl, '_blank', 'noopener,noreferrer')}
+                            >
+                                <LogoGithub size={getIconSizeStyles(typography.smallButton.fontSize)} className='tinyRightMargin' />
+                                View The Code
+                            </CustomButton>
+                        </Box>
+
                         {/* Special Details */}
                         {
                             specialInfo && (
@@ -172,17 +184,6 @@ const Project: React.FC<ProjectProps> = ({
                             noMargins={!!specialInfo}
                         />
 
-                        {/* Github Button */}
-                        <Box className='verticallyCenteredRow fillWidth' sx={{ justifyContent: 'flex-end' }}>
-                            <CustomButton
-                                type='secondary'
-                                size='small'
-                                onClick={() => window.open(githubUrl, '_blank', 'noopener,noreferrer')}
-                            >
-                                <LogoGithub size={getIconSizeStyles(typography.smallButton.fontSize)} className='tinyRightMargin' />
-                                View The Code
-                            </CustomButton>
-                        </Box>
                     </Box >
                 </Card>
             }
