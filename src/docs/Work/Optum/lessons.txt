@@ -1,4 +1,4 @@
-Remote Development: Delivered full-stack code updates in 10-day sprints for a React and Java Spring Boot application hosted on Azure.
+Remote Development: Delivered full-stack improvements for a React and Java Spring Boot application hosted on Azure, focusing on code efficiency and reusability.
 
 Feature Implementation: Enhanced user experience by implementing new features for search bars, filter options, and patient profiles, reducing patient search times by 50%.
 
