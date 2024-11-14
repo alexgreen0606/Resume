@@ -19,7 +19,11 @@ const CopyButtonWithTooltip = ({ label }: { label: string }) => {
 
     return (
         <InfoChip
-            title='Copy'
+            title={
+                <CustomText type="content">
+                    Copy
+                </CustomText>
+            }
             placement='right'
         >
             <Box sx={{ width: 'fit-content' }}>
