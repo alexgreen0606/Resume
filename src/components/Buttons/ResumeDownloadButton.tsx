@@ -15,7 +15,7 @@ const ResumeDownloadButton: React.FC<ResumeDownloadButtonProps> = ({ size = 'med
     const iconSize = getIconSizeStyles(size === 'medium' ? typography.button.fontSize : typography.smallButton.fontSize)
 
     return (
-        <a href="/Resume.pdf" download='Alexander-Green-Resume' target='_blank' className={margins ? 'tinyVerticalMargins' : ''}>
+        <a href="/Resume.pdf" download='Alex-Green-Resume' target='_blank' className={margins ? 'tinyVerticalMargins' : ''}>
             <CustomButton type='secondary' size={size}>
                 <DocumentDownload size={iconSize} className='tinyRightMargin' />Download Resume PDF
             </CustomButton>

@@ -1,6 +1,6 @@
 import { Box, lighten } from "@mui/material";
 import { InfoChip } from "../MicroElements/InfoChip";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Checkmark } from "@carbon/icons-react";
 import { useTheme } from "../../styles/ThemeContext";
 import CustomText from "../Text/CustomText";
@@ -11,10 +11,16 @@ const CopyButtonWithTooltip = ({ label }: { label: string }) => {
 
     const [tooltipOpen, setTooltipOpen] = useState(false);
 
+    useEffect(() => {
+        if (tooltipOpen) {
+            const timer = setTimeout(() => setTooltipOpen(false), 2000);
+            return () => clearTimeout(timer);
+        }
+    }, [tooltipOpen]);
+
     const handleClick = useCallback(() => {
         setTooltipOpen(true);
         navigator.clipboard.writeText(label);
-        setTimeout(() => setTooltipOpen(false), 2000);
     }, [label]);
 
     return (

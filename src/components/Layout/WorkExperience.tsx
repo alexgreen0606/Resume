@@ -1,7 +1,7 @@
 import { Box, Dialog, IconButton } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import Letter from './Letter';
-import { ChevronDown, ChevronUp, Document } from '@carbon/icons-react';
+import { ChevronDown, ChevronLeft, Document } from '@carbon/icons-react';
 import { readCustomTextToArray } from '../../utils/textUtils';
 import { useTheme } from '../../styles/ThemeContext';
 import Details from './Details';
@@ -109,7 +109,7 @@ const WorkExperience: React.FC<WorkExperienceProps> = ({
                         </Box>
                         <IconButton>
                             {!showDetails ? (
-                                <ChevronUp size={typography.label.fontSize} color={palette.passiveText} />
+                                <ChevronLeft size={typography.label.fontSize} color={palette.passiveText} />
                             ) : (
                                 <ChevronDown size={typography.label.fontSize} color={palette.passiveText} />
                             )}
