@@ -1,0 +1,5 @@
+React Native: Developed the entire app over 10 months in React Native before migrating to SwiftUI for enhanced Apple Calendar synchronization.
+Swift: Learned how to code in Swift and the fundamentals of SwiftUI, EventKit, WeatherKit, and CloudKit.
+Apple Developer: Gained experience with the Apple development process and Apple's libraries.
+Design: Explored Apple design principles and aligned the app to provide iOS users with a familiar experience.
+IconComposer / Figma: Designed and created a custom app icon along with 18 variants based on user-selected accent colors and themes.

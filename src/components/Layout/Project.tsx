@@ -9,6 +9,7 @@ import useIsPhoneScreen from '../../hooks/useIsPhoneScreen';
 import { getIconSizeStyles } from '../../utils/sizeUtils';
 import LoadingDataContainer from '../MicroElements/LoadingDataContainer';
 import Card from '../Cards/Card';
+import "../../styles/Project.css"
 
 interface ProjectProps {
     docsFolder: string
@@ -22,7 +23,7 @@ interface ProjectProps {
         startDemo: () => void,
         demoActive: boolean
     }
-    sampleConfig: {
+    sampleConfig?: {
         videoId: string,
         ratio: string
     }
@@ -42,6 +43,7 @@ const Project: React.FC<ProjectProps> = ({
     const { palette, theme, typography } = useTheme()
 
     const [techStackList, setTechStackList] = useState<string[] | undefined>(undefined)
+    const [iphoneSampleImages, setIphoneSampleImages] = useState<string[] | undefined>(undefined)
     const [descriptionModule, setDescriptionModule] = useState<{ default?: ComponentType<{}> } | undefined>(undefined)
     const [lessonsList, setLessonsList] = useState<string[] | undefined>(undefined)
 
@@ -71,6 +73,15 @@ const Project: React.FC<ProjectProps> = ({
 
             if (lessonsFile) {
                 setLessonsList(await readCustomTextToArray(lessonsFile));
+            }
+
+            const iphoneSamples = import.meta.glob('../../docs/Projects/*/iphoneSample/*', {
+                eager: true,
+                import: 'default'
+            }) as Record<string, string>;
+
+            if (iphoneSamples) {
+                setIphoneSampleImages(Object.values(iphoneSamples))
             }
         };
 
@@ -127,7 +138,7 @@ const Project: React.FC<ProjectProps> = ({
                                         </Box>
                                     )}
                                 </Box>
-                            ) : (
+                            ) : sampleConfig ? (
                                 <Box
                                     id="Demo-Video"
                                     className="fillWidth horizontallyCenteredRow"
@@ -151,6 +162,25 @@ const Project: React.FC<ProjectProps> = ({
                                         allowFullScreen
                                         allow="autoplay; encrypted-media; fullscreen;"
                                     />
+                                </Box>
+                            ) : iphoneSampleImages && (
+                                <Box className="fillWidth iphoneSampleImageContainer">
+                                    {iphoneSampleImages.map((filePath) => (
+                                        <Box
+                                            key={filePath}
+                                            className="iphoneSampleImage"
+                                            sx={{
+                                                boxShadow: `clamp(10px, 5vw, 40px) clamp(10px, 5vw, 40px) clamp(6px, 4vw, 30px) ${palette.shadow}`
+                                            }}
+                                        >
+                                            <img
+                                                key={filePath}
+                                                src={filePath}
+                                                alt="Project Sample"
+                                                style={{ width: "100%", height: "100%" }}
+                                            />
+                                        </Box>
+                                    ))}
                                 </Box>
                             )}
                         </Box >

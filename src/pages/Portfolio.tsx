@@ -1,4 +1,4 @@
-import { Bot, NoodleBowl, Rocket, User } from '@carbon/icons-react';
+import { Bot, List, NoodleBowl, Rocket, User } from '@carbon/icons-react';
 import PageContainer from '../components/PageContainer/PageContainer';
 import ProjectCard from '../components/Cards/ProjectCard';
 import { Box } from '@mui/material';
@@ -37,6 +37,16 @@ const Portfolio = () => {
                     <MarkdownInterpreter markdownModule={Welcome} />
                 </Card>
                 <Box className='cards fillWidth pageVerticalMargins'>
+                    <ProjectCard
+                        title="Planner"
+                        onClick={endDemo}
+                        docsFolder='Planner'
+                        technology='SwiftUI Mobile App'
+                        githubUrl='https://github.com/alexgreen0606/PlannerSwift'
+                        font='planner'
+                        textColor={palette.plannerBlue}
+                        icon={<List />}
+                    />
                     <ProjectCard
                         title="Cookbook"
                         onClick={endDemo}

@@ -1,4 +1,5 @@
 React 100
+Swift 100
 Spring_Boot 100
 Vite 100
 Java 100
@@ -6,10 +7,9 @@ CSS 100
 MySQL 85
 JUnit 70
 Angular 70
-Redux 1
+Figma 1
 Docker 1
-JPA_Repository 1
-Jenkins 1
+React_Native 1
 Azure 1
 GitHub_/_GitLab 1
 HTML5 1

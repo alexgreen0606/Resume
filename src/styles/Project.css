@@ -1,0 +1,22 @@
+.iphoneSampleImageContainer {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.iphoneSampleImage {
+    border-radius: 3rem;
+    border: 0.5rem solid black;
+    overflow: hidden;
+    width: 20rem;
+}
+
+@media (max-width: 1200px) {
+
+    .iphoneSampleImageContainer {
+        flex-flow: column;
+        align-items: center;
+    }
+
+}

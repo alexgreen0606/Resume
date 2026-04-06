@@ -33,10 +33,10 @@ const NavBar: React.FC<NavBarProps> = ({ currPage, setNavBarHeight }) => {
             <Box onClick={() => navigate('/')} sx={{ cursor: 'pointer' }}>
                 <Typography sx={typography.pageLabel}>
                     <span style={{ color: palette.intenseCustomText, fontFamily: 'Menlo' }}>
-                        Alex {' '}
+                        Alex
                     </span>
                     <span style={{ color: palette.green, fontFamily: 'Menlo' }}>
-                        Green
+                        {" "}Green
                     </span>
                 </Typography>
             </Box>

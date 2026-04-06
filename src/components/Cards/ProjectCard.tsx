@@ -22,7 +22,7 @@ interface CardProps {
         startDemo: () => void
         demoActive: boolean
     }
-    sampleConfig: {
+    sampleConfig?: {
         videoId: string,
         ratio: string
     }
@@ -40,7 +40,8 @@ const ProjectCard: React.FC<CardProps> = ({
     font,
     icon,
     technology,
-    sampleConfig
+    sampleConfig,
+    iphoneSampleUrls
 }) => {
 
     const { palette } = useTheme()
