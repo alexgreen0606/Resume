@@ -40,8 +40,7 @@ const ProjectCard: React.FC<CardProps> = ({
     font,
     icon,
     technology,
-    sampleConfig,
-    iphoneSampleUrls
+    sampleConfig
 }) => {
 
     const { palette } = useTheme()
