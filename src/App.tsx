@@ -6,6 +6,7 @@ import Portfolio from './pages/Portfolio'
 import Contact from './pages/Contact'
 import { useTheme } from './styles/ThemeContext'
 import { useEffect } from 'react'
+import PlannerPrivacyPolicy from './pages/PlannerPrivacyPolicy'
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
       <Route path='/' element={<Resume />} />
       <Route path='portfolio' element={<Portfolio />} />
       <Route path='/contact' element={<Contact />} />
+      <Route path='/planner/privacy-policy' element={<PlannerPrivacyPolicy />} />
     </Routes>
   )
 }
