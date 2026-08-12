@@ -116,9 +116,7 @@ const Resume = () => {
                                         curvedBottomEdge={index === (workExperiences.length - 1)}
                                     />
                                     {index !== workExperiences.length - 1 && (
-                                        <Box className='fillWidth'>
-                                            <Divider sx={{ backgroundColor: palette.passiveText, width: '100%' }} />
-                                        </Box>
+                                        <Divider sx={{ backgroundColor: palette.passiveText, width: '100%' }} />
                                     )}
                                 </Box>
                             ))}

@@ -1,4 +1,4 @@
-import { Box, Dialog, IconButton } from '@mui/material';
+import { Box, Collapse, Dialog, IconButton } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import Letter from './Letter';
 import { ChevronDown, ChevronLeft, Document } from '@carbon/icons-react';
@@ -115,7 +115,7 @@ const WorkExperience: React.FC<WorkExperienceProps> = ({
                             )}
                         </IconButton>
                     </Box>
-                    {showDetails && (
+                    <Collapse in={showDetails}>
                         <Box className='standardBottomPadded standardHorizontalPadded'>
                             <Details
                                 lessons={lessons}
@@ -153,7 +153,7 @@ const WorkExperience: React.FC<WorkExperienceProps> = ({
                                 </Box>
                             )}
                         </Box>
-                    )}
+                    </Collapse>
                 </Box>
             }>
         </LoadingDataContainer>

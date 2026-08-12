@@ -62,6 +62,11 @@
 
 /* PADDING */
 
+.standardTopPadded {
+    padding-top: clamp(10px, 2vw, 26px);
+    box-sizing: border-box;
+}
+
 .standardBottomPadded {
     padding-bottom: clamp(10px, 2vw, 26px);
     box-sizing: border-box;

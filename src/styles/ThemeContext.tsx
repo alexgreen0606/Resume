@@ -25,7 +25,9 @@ const defaultContext: ThemeContextType = {
     toggleTheme: () => { },
     palette: darkPalette,
     typography: {
-        pageLabel: { fontSize: 'clamp(24px, 5.5vw, 70px)', letterSpacing: 'clamp(-8px, -.4vw, -2px)', wordSpacing: 'clamp(-14px, -.5vw, -4px)', padding: '5px 10px', lineHeight: 1 },
+        pageLabel: { 
+            fontSize: 'clamp(24px, 5.5vw, 70px)'
+        },
         intenseHeader: { fontSize: 'clamp(16px, 4vw, 50px)', fontFamily: 'Arial' },
         header: { fontSize: 'clamp(15px, 3.75vw, 35px)', fontWeight: 550, cursor: 'default', letterSpacing: 0, fontFamily: 'Arial', color: darkPalette.intenseCustomText },
         label: { fontSize: 'clamp(12px, 3vw, 20px)', fontFamily: 'Arial', cursor: 'default', fontWeight: 600, letterSpacing: 0, color: darkPalette.neautralCustomText },

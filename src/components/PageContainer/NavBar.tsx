@@ -30,7 +30,7 @@ const NavBar: React.FC<NavBarProps> = ({ currPage, setNavBarHeight }) => {
 
     return (
         <Box ref={navBarRef} className="navBarContainer standardBottomPadded">
-            <Box onClick={() => navigate('/')} sx={{ cursor: 'pointer' }}>
+            <Box onClick={() => navigate('/')} sx={{ cursor: 'pointer', p: "0.6rem" }}>
                 <Typography sx={typography.pageLabel}>
                     <span style={{ color: palette.intenseCustomText, fontFamily: 'Menlo' }}>
                         Alex
