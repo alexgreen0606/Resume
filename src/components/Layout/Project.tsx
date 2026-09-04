@@ -27,6 +27,9 @@ interface ProjectProps {
         videoId: string,
         ratio: string
     }
+    appStoreConfig?: {
+        url: string
+    }
 }
 
 const Project: React.FC<ProjectProps> = ({
@@ -37,7 +40,8 @@ const Project: React.FC<ProjectProps> = ({
     handleClose,
     githubUrl,
     demoConfig,
-    sampleConfig
+    sampleConfig,
+    appStoreConfig
 }) => {
 
     const { palette, theme, typography } = useTheme()
@@ -99,7 +103,7 @@ const Project: React.FC<ProjectProps> = ({
                     icon={icon}
                     onClose={handleClose}
                 >
-                    < Box
+                    <Box
                         className='fillWidth fillHeight horizontallyCenteredColumn'
                         sx={{ display: 'flex', flexFlow: 'column', boxSizing: 'border-box' }
                         }
@@ -185,8 +189,20 @@ const Project: React.FC<ProjectProps> = ({
                             )}
                         </Box >
 
-                        {/* Github Button */}
-                        <Box className='verticallyCenteredRow fillWidth standardTopMargin'>
+                        <Box className='verticallyCenteredRow spacedApart fillWidth standardTopMargin'>
+
+                            {/* App Store Button */}
+                            {appStoreConfig && (
+                                <CustomButton
+                                    type='primary'
+                                    size='small'
+                                    onClick={() => window.open(appStoreConfig.url, '_blank', 'noopener,noreferrer')}
+                                >
+                                     View in App Store
+                                </CustomButton>
+                            )}
+
+                            {/* Github Button */}
                             <CustomButton
                                 type='secondary'
                                 size='small'
@@ -195,6 +211,7 @@ const Project: React.FC<ProjectProps> = ({
                                 <LogoGithub size={getIconSizeStyles(typography.smallButton.fontSize)} className='tinyRightMargin' />
                                 View The Code
                             </CustomButton>
+
                         </Box>
 
                         {/* Special Details */}
@@ -214,11 +231,10 @@ const Project: React.FC<ProjectProps> = ({
                             noMargins={!!specialInfo}
                         />
 
-                    </Box >
+                    </Box>
                 </Card>
             }
         />
-
     )
 }
 

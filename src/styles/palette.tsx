@@ -19,7 +19,7 @@ export const darkPalette = {
     tooltipBackground: 'rgb(60,60,60)',
     projectType: 'rgb(225, 225, 225)',
 
-    shadow: 'rgb(10, 10, 10)',
+    shadow: 'rgb(15, 15, 15)',
 
     plannerBlue: 'rgb(0, 155, 255)'
 };
@@ -45,7 +45,7 @@ export const lightPalette = {
     tooltipBackground: 'rgb(230,230,230)',
     projectType: 'rgb(225, 225, 225)',
 
-    shadow: 'rgb(180, 180, 180)',
+    shadow: 'rgb(210, 210, 210)',
 
     plannerBlue: 'rgb(0, 155, 255)'
 };

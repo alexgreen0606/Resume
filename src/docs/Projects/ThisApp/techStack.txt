@@ -3,4 +3,4 @@ Vite
 CSS
 HTML5
 MDX
-Typescript
+TypeScript

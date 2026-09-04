@@ -41,11 +41,14 @@ const Portfolio = () => {
                         title="Planner"
                         onClick={endDemo}
                         docsFolder='Planner'
-                        technology='SwiftUI Mobile App'
+                        technology='Swift iOS App'
                         githubUrl='https://github.com/alexgreen0606/PlannerSwift'
                         font='planner'
                         textColor={palette.plannerBlue}
                         icon={<List />}
+                        appStoreConfig={{
+                            url: 'https://apps.apple.com/us/app/planner-routines-checklists/id6791698232'
+                        }}
                     />
                     <ProjectCard
                         title="Cookbook"

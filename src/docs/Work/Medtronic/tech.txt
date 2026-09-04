@@ -1,8 +1,10 @@
 React
 Vite
-Typescript
-Redux
+TypeScript
+TanStack
+Jotai
 MDX
+Git / GitLab
 Jira
 Confluence
-GitLab
+Redux

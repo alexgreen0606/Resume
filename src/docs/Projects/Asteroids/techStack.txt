@@ -1,4 +1,4 @@
 React
 CSS
 HTML5
-Typescript
+TypeScript

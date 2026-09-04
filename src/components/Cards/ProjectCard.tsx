@@ -26,6 +26,9 @@ interface CardProps {
         videoId: string,
         ratio: string
     }
+    appStoreConfig?: {
+        url: string
+    }
 }
 
 const ProjectCard: React.FC<CardProps> = ({
@@ -40,7 +43,8 @@ const ProjectCard: React.FC<CardProps> = ({
     font,
     icon,
     technology,
-    sampleConfig
+    sampleConfig,
+    appStoreConfig
 }) => {
 
     const { palette } = useTheme()
@@ -113,6 +117,7 @@ const ProjectCard: React.FC<CardProps> = ({
                             specialInfo={specialInfo}
                             githubUrl={githubUrl}
                             sampleConfig={sampleConfig}
+                            appStoreConfig={appStoreConfig}
                         />
                     </Dialog>
                 </Box>

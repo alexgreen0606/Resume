@@ -1,9 +1,11 @@
-Remote Development: Delivered front-end code updates for a React Vite application in 2 week sprints, leveraging GitLab for version control and collaboration.
-
 Increased Productivity: Spearheaded the development of Medtronic's Interoperability app from inception, building reusable components that reduced frontend development time by 70%.
 
+Repository Consolidation: Independently merged two repositories into a shared application, enabling component reuse that saved the team hundreds of hours of development.
+
+Frontend Modernization: Refactored the existing frontend codebase to adopt modern open-source libraries such as TanStack and Jotai, improving maintainability and simplifying application state management.
+
+Onboarding Documentation: Created a comprehensive DESIGN.md documenting frontend coding practices, significantly accelerating the onboarding process for new developers.
+
+Agile Development: Delivered front-end code updates for a React Vite application in 2 week sprints, leveraging GitLab for version control and collaboration.
+
 Design Collaboration: Facilitated cross functional design alignment through weekly sessions to enhance code reusability and design practices.
-
-Form Generator: Independently developed a dynamic form generator, enabling business partners to create new web forms in under ten minutes. This eliminated the need for developers to spend time coding forms manually.
-
-Documentation Viewer: Implemented a scalable documentation viewer to render Markdown, JSON, and OpenAPI files in real-time, increasing the app’s information display efficiency by 90%.
