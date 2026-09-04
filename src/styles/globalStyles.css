@@ -90,6 +90,11 @@
     box-sizing: border-box;
 }
 
+.tinyTopPadded {
+    padding-top: clamp(5px, 1.5vw, 10px);
+    box-sizing: border-box;
+}
+
 .tinyHorizontalPadded {
     padding-left: clamp(5px, 1.5vw, 10px);
     padding-right: clamp(5px, 1.5vw, 10px);

@@ -68,7 +68,7 @@ const CustomList: React.FC<CustomListProps> = ({ items, columns = 1, centerText 
     if (!items) return null;
 
     return (
-        <Box className='fillWidth'>
+        <Box className='fillWidth tinyTopPadded'>
             {renderListItems(items)}
         </Box>
     );
