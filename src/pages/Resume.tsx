@@ -9,7 +9,7 @@ import WisconsinCrest from '../images/crest.png'
 import Card from '../components/Cards/Card';
 import { Education, Portfolio, SkillLevel } from '@carbon/icons-react';
 import CustomList from '../components/MicroElements/CustomList';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { readCustomTextToArray } from '../utils/textUtils';
 import WorkExperience from '../components/Layout/WorkExperience';
 import { useNavigate } from 'react-router-dom';
@@ -21,34 +21,23 @@ import '../styles/Resume.css'
 import CustomText from '../components/Text/CustomText';
 import CustomButton from '../components/Buttons/CustomButton';
 import LoadingDataContainer from '../components/MicroElements/LoadingDataContainer';
-
-const workExperiences = [
-    {
-        role: 'UX Developer',
-        dates: 'February 2024 - Present',
-        docFolderName: 'Medtronic',
-        recommendationLetterConfig: {
-            author: 'Brian Nelb',
-            linkedInUrl: 'https://www.linkedin.com/in/brian-nelb-011413191/',
-            authorTitle: 'Medtronic Product Owner',
-            authorEmail: 'brian.nelb@medtronic.com ',
-            date: 'September 10, 2024'
-        }
-    },
-    {
-        role: 'Full Stack Software Engineer',
-        dates: 'February 2023 - August 2023',
-        docFolderName: 'Optum'
-    }
-]
+import { workExperience } from '../docs/workExperience';
 
 const Resume = () => {
-
     const { palette, theme } = useTheme()
-
     const navigate = useNavigate()
 
     const [skills, setSkills] = useState<{ title: string, strength: number }[] | undefined>(undefined)
+
+    const yearsOfExperience = useMemo(() => {
+        const startDate = new Date(2023, 1, 1); // February 2023 (start of professional experience)
+        const now = new Date();
+
+        let months = (now.getFullYear() - startDate.getFullYear()) * 12;
+        months += now.getMonth() - startDate.getMonth();
+
+        return Math.round(months / 12);
+    }, []);
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -56,16 +45,14 @@ const Resume = () => {
 
     useEffect(() => {
         const fetchPageData = async () => {
-
             const strengthStrings = await readCustomTextToArray(() => import('../docs/strengths.txt'))
             const strengthMap = strengthStrings.map(
                 strength => ({ title: strength.split(' ')[0].replace(/_/g, ' '), strength: Number(strength.split(' ')[1]) }))
-            setSkills(strengthMap)
 
+            setSkills(strengthMap)
         }
 
         fetchPageData()
-
     }, [])
 
     return (
@@ -82,7 +69,7 @@ const Resume = () => {
                                     Hello, I'm a{' '}
                                 </CustomText>
                                 <span style={{ color: palette.green, lineHeight: 'clamp(16px, 4vw, 48px)', display: 'inline-block' }}>
-                                    Software Engineer <span style={{ color: palette.neautralCustomText }}>with 6 years of coding experience!</span>
+                                    Software Engineer <span style={{ color: palette.neautralCustomText }}>with {yearsOfExperience} years of professional experience!</span>
                                 </span>
                             </CustomText>
                             <MarkdownInterpreter markdownModule={Synopsis} />
@@ -106,16 +93,16 @@ const Resume = () => {
                     {/* Work Experience */}
                     <Card title='Professional Experience' noPadding icon={<Portfolio />} className='fillWidth'>
                         <Box>
-                            {workExperiences.map((experience, index) => (
+                            {workExperience.map((experience, index) => (
                                 <Box className='fillWidth'>
                                     <WorkExperience
                                         role={experience.role}
                                         dates={experience.dates}
                                         docFolderName={experience.docFolderName}
                                         recommendationLetterConfig={experience.recommendationLetterConfig}
-                                        curvedBottomEdge={index === (workExperiences.length - 1)}
+                                        curvedBottomEdge={index === (workExperience.length - 1)}
                                     />
-                                    {index !== workExperiences.length - 1 && (
+                                    {index !== workExperience.length - 1 && (
                                         <Divider sx={{ backgroundColor: palette.passiveText, width: '100%' }} />
                                     )}
                                 </Box>

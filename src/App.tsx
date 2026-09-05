@@ -9,7 +9,6 @@ import { useEffect } from 'react'
 import PlannerPrivacyPolicy from './pages/PlannerPrivacyPolicy'
 
 function App() {
-
   const { palette } = useTheme()
 
   // Ensure the body, root, and html all match the background of the app

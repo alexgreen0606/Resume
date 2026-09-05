@@ -31,7 +31,6 @@ const WorkExperience: React.FC<WorkExperienceProps> = ({
     recommendationLetterConfig,
     curvedBottomEdge
 }) => {
-
     const { palette, typography } = useTheme()
 
     const [lessons, setLessons] = useState<string[]>([])
@@ -120,6 +119,7 @@ const WorkExperience: React.FC<WorkExperienceProps> = ({
                             <Details
                                 lessons={lessons}
                                 tech={tech}
+                                noMargins
                             />
                             {recommendationLetterConfig && (
                                 <Box
