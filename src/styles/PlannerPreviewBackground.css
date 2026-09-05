@@ -1,0 +1,60 @@
+:root {
+    --planner-binding-width: 16%;
+}
+
+.container {
+    background-color: black;
+}
+
+.binding {
+    width: var(--planner-binding-width);
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.bindingPillContainer {
+    width: 50%;
+    height: clamp(14px, 1vw, 20px);
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.bindingPill {
+    border-radius: .56rem;
+    width: 100%;
+    background-color: black;
+    height: 70%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.8);
+}
+
+.bindingPillHole {
+    width: clamp(14px, 1vw, 20px);
+    height: clamp(14px, 1vw, 20px);
+    border-radius: .7rem;
+    flex: 0 0 clamp(14px, 1vw, 20px);
+    position: relative;
+    transform: translateX(40%);
+    z-index: 0;
+}
+
+@media (max-width: 1200px) {
+
+    :root {
+        --planner-binding-width: 10%;
+    }
+
+    .binding {
+        width: var(--planner-binding-width);
+    }
+
+}

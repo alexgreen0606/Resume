@@ -11,12 +11,14 @@ interface CardProps {
     docsFolder: string
     technology: string
     icon: React.ReactNode
+    titleLeftPadding?: string;
     font?: string
     textColor: string
     onClick: () => void
     titleClass?: string
     githubUrl: string
     specialInfo?: React.ReactNode
+    background?: React.ReactNode
     demoConfig?: {
         module: React.ReactNode
         startDemo: () => void
@@ -40,9 +42,11 @@ const ProjectCard: React.FC<CardProps> = ({
     onClick,
     demoConfig,
     textColor,
+    titleLeftPadding,
     font,
     icon,
     technology,
+    background,
     sampleConfig,
     appStoreConfig
 }) => {
@@ -62,22 +66,27 @@ const ProjectCard: React.FC<CardProps> = ({
     };
 
     useEffect(() => {
+        if (background) {
+            return
+        }
+
         const getImage = async () => {
             const image = await import(`../../docs/Projects/${docsFolder}/sample.png`)
             setProjImagePath(image.default)
         }
         getImage()
-    }, [])
+    }, [background, docsFolder])
 
     return (
         <LoadingDataContainer
-            loadedData={[projImagePath]}
+            loadedData={[background ? 'background' : projImagePath]}
             display={
                 <Box className='card pageVerticalMargins horizontallyCenteredColumn'>
                     <Box
                         className='fillWidth horizontalMargins card curved'
                         sx={{
-                            backgroundImage: `url(${projImagePath})`,
+                            backgroundImage: background ? 'none' : `url(${projImagePath})`,
+                            overflow: 'hidden',
                             backgroundSize: 'cover',
                             position: 'relative',
                             backgroundPosition: 'bottom',
@@ -89,7 +98,20 @@ const ProjectCard: React.FC<CardProps> = ({
                             }
                         }}
                         onClick={handleClickOpen}>
-                        <Box className="fullyCenteredColumn fillHeight" sx={{ textAlign: 'center' }}>
+                        {background && (
+                            <Box
+                                aria-hidden='true'
+                                sx={{
+                                    position: 'absolute',
+                                    inset: 0,
+                                    pointerEvents: 'none',
+                                    zIndex: 0,
+                                }}
+                            >
+                                {background}
+                            </Box>
+                        )}
+                        <Box className="fullyCenteredColumn fillHeight" sx={{ position: 'relative', textAlign: 'center', zIndex: 1, paddingLeft: titleLeftPadding }}>
                             <CustomText
                                 type='intenseHeader'
                                 sx={{ color: textColor, fontFamily: font }}

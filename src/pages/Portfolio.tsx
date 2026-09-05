@@ -13,6 +13,7 @@ import LabelAndValue from '../components/MicroElements/LabelAndValue';
 import Toggle from '../components/Buttons/Toggle';
 import CustomButton from '../components/Buttons/CustomButton';
 import Asteroids from '../docs/Projects/Asteroids/demo/Asteroids';
+import PlannerPreviewBackground from '../docs/Projects/Planner/components/PlannerPreviewBackground';
 
 const Portfolio = () => {
 
@@ -45,37 +46,31 @@ const Portfolio = () => {
                         githubUrl='https://github.com/alexgreen0606/PlannerSwift'
                         font='planner'
                         textColor={palette.plannerBlue}
+                        titleLeftPadding='var(--planner-binding-width)'
                         icon={<List />}
+                        background={<PlannerPreviewBackground />}
                         appStoreConfig={{
                             url: 'https://apps.apple.com/us/app/planner-routines-checklists/id6791698232'
                         }}
                     />
                     <ProjectCard
-                        title="Cookbook"
+                        title="Resume"
                         onClick={endDemo}
-                        docsFolder='Pantry'
-                        icon={<NoodleBowl />}
-                        titleClass='pantryLogo'
-                        githubUrl='https://github.com/alexgreen0606/Cookbook'
-                        textColor={palette.orange}
-                        technology='Angular / Spring Boot App'
+                        titleClass='thisAppLogo'
+                        docsFolder='ThisApp'
+                        technology='React / Vite UX'
+                        githubUrl='https://github.com/alexgreen0606/Resume'
+                        textColor={palette.green}
+                        icon={<User />}
+                        specialInfo={
+                            <LabelAndValue
+                                label='Dark Mode'
+                                value={<Toggle onChange={toggleTheme} checked={theme === 'dark'} />}
+                            />
+                        }
                         sampleConfig={{
-                            videoId: 'uR4BIvYTaHI',
-                            ratio: '61%'
-                        }}
-                    />
-                    <ProjectCard
-                        title="Learning Labyrinth"
-                        onClick={endDemo}
-                        docsFolder='Maze'
-                        technology='React UX'
-                        githubUrl='https://github.com/alexgreen0606/Learning-Labyrinth'
-                        font='Arial'
-                        textColor={palette.blue}
-                        icon={<Bot />}
-                        sampleConfig={{
-                            videoId: 'nUfHPnIClnM',
-                            ratio: '61%'
+                            videoId: 'eZJrKdgLeKs',
+                            ratio: '59.6%'
                         }}
                     />
                     <ProjectCard
@@ -103,23 +98,31 @@ const Portfolio = () => {
                         }}
                     />
                     <ProjectCard
-                        title="This App"
+                        title="Learning Labyrinth"
                         onClick={endDemo}
-                        titleClass='thisAppLogo'
-                        docsFolder='ThisApp'
-                        technology='React / Vite UX'
-                        githubUrl='https://github.com/alexgreen0606/Resume'
-                        textColor={palette.green}
-                        icon={<User />}
-                        specialInfo={
-                            <LabelAndValue
-                                label='Dark Mode'
-                                value={<Toggle onChange={toggleTheme} checked={theme === 'dark'} />}
-                            />
-                        }
+                        docsFolder='Maze'
+                        technology='React UX'
+                        githubUrl='https://github.com/alexgreen0606/Learning-Labyrinth'
+                        font='Arial'
+                        textColor={palette.blue}
+                        icon={<Bot />}
                         sampleConfig={{
-                            videoId: 'eZJrKdgLeKs',
-                            ratio: '59.6%'
+                            videoId: 'nUfHPnIClnM',
+                            ratio: '61%'
+                        }}
+                    />
+                    <ProjectCard
+                        title="Cookbook"
+                        onClick={endDemo}
+                        docsFolder='Pantry'
+                        icon={<NoodleBowl />}
+                        titleClass='pantryLogo'
+                        githubUrl='https://github.com/alexgreen0606/Cookbook'
+                        textColor={palette.orange}
+                        technology='Angular / Spring Boot App'
+                        sampleConfig={{
+                            videoId: 'uR4BIvYTaHI',
+                            ratio: '61%'
                         }}
                     />
                 </Box>
