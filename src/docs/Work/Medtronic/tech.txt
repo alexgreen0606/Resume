@@ -1,10 +1,16 @@
 React
-Vite
 TypeScript
-TanStack
+JavaScript
+Vite
+React Testing Library
+
 Jotai
+TanStack
+Redux
 MDX
-Git / GitLab
+
+Git
+GitLab
+
 Jira
 Confluence
-Redux

@@ -49,6 +49,10 @@ const Portfolio = () => {
                         titleLeftPadding='var(--planner-binding-width)'
                         icon={<List />}
                         background={<PlannerPreviewBackground />}
+                        sampleConfig={{
+                            videoId: 'X4q0i0MMWGo',
+                            ratio: '59.6%'
+                        }}
                         appStoreConfig={{
                             url: 'https://apps.apple.com/us/app/planner-routines-checklists/id6791698232'
                         }}

@@ -1,3 +1,6 @@
+Note: This file is deprecated. 
+Skills are now inferred from /docs/Projects and /docs/Work
+
 React 100
 TypeScript 100
 Java 100
@@ -18,7 +21,7 @@ Git 1
 JUnit 70
 Jira 1
 
-HTML5 1
+HTML 1
 CSS 100
 MySQL 85
 

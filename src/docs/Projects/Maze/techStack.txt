@@ -1,6 +1,10 @@
 React
+JavaScript
 Redux
 CSS
-HTML5
-Java Spring Boot
+
+Spring Boot
+Java
 JPA Repository
+
+Docker

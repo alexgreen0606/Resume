@@ -1,8 +1,15 @@
 React
+TypeScript
 Redux
-Java Spring Boot
-MySQL
-Jenkins
-Azure
-JUnit Testing
+
+JUnit
+
+Spring Boot
+Java 
+SQL
+
+Git
 GitHub
+
+Azure
+Jenkins

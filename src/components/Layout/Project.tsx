@@ -161,10 +161,25 @@ const Project: React.FC<ProjectProps> = ({
                                     }}
                                 >
                                     <iframe
-                                        src={`https://www.youtube.com/embed/${sampleConfig.videoId}?autoplay=1&controls=1&mute=1&loop=1&playlist=${sampleConfig.videoId}&modestbranding=1rel=0`}
+                                        src={`https://www.youtube.com/embed/${sampleConfig.videoId}?autoplay=1&controls=1&mute=1&loop=1&playlist=${sampleConfig.videoId}&modestbranding=1&rel=0&enablejsapi=1`}
                                         frameBorder="0"
                                         allowFullScreen
                                         allow="autoplay; encrypted-media; fullscreen;"
+                                        onLoad={(event) => {
+                                            const setPlaybackRate = () => {
+                                                event.currentTarget.contentWindow?.postMessage(
+                                                    JSON.stringify({
+                                                        event: 'command',
+                                                        func: 'setPlaybackRate',
+                                                        args: [1.5],
+                                                    }),
+                                                    'https://www.youtube.com'
+                                                );
+                                            };
+
+                                            setPlaybackRate();
+                                            window.setTimeout(setPlaybackRate, 250);
+                                        }}
                                     />
                                 </Box>
                             ) : iphoneSampleImages && (

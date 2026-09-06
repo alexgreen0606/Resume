@@ -1,6 +1,5 @@
 React
+TypeScript
 Vite
 CSS
-HTML5
 MDX
-TypeScript

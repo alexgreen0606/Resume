@@ -23,6 +23,9 @@ import CustomButton from '../components/Buttons/CustomButton';
 import LoadingDataContainer from '../components/MicroElements/LoadingDataContainer';
 import { workExperience } from '../docs/workExperience';
 
+const projectTechStackFiles = import.meta.glob('../docs/Projects/*/techStack.txt');
+const workTechStackFiles = import.meta.glob('../docs/Work/*/tech.txt');
+
 const Resume = () => {
     const { palette, theme } = useTheme()
     const navigate = useNavigate()
@@ -43,13 +46,28 @@ const Resume = () => {
         window.scrollTo(0, 0);
     });
 
+    // Note: In the future, let's update every skill to have a weight assigned to it,
+    // then we can control sorting better.
     useEffect(() => {
         const fetchPageData = async () => {
-            const strengthStrings = await readCustomTextToArray(() => import('../docs/strengths.txt'))
-            const strengthMap = strengthStrings.map(
-                strength => ({ title: strength.split(' ')[0].replace(/_/g, ' '), strength: Number(strength.split(' ')[1]) }))
+            const techStacks = await Promise.all(
+                [
+                    ...Object.values(projectTechStackFiles),
+                    ...Object.values(workTechStackFiles),
+                ].map(readCustomTextToArray)
+            );
+            const skillCounts = new Map<string, number>();
 
-            setSkills(strengthMap)
+            techStacks.flat().forEach(skill => {
+                skillCounts.set(skill, (skillCounts.get(skill) ?? 0) + 1);
+            });
+
+            const skillMap = Array.from(skillCounts, ([title, strength]) => ({ title, strength }))
+                .sort((firstSkill, secondSkill) =>
+                    secondSkill.strength - firstSkill.strength || firstSkill.title.localeCompare(secondSkill.title)
+                );
+
+            setSkills(skillMap)
         }
 
         fetchPageData()
