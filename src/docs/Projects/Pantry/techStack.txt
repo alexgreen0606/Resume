@@ -1,7 +1,8 @@
-Angular
-HTML
-CSS
+Angular 1000
+Spring Boot 1000
 
-Spring Boot
-Java
-JPA Repository
+HTML 100
+CSS 100
+Java 100
+
+JPA Repository 10

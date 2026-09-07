@@ -1,9 +1,11 @@
-Swift
-SwiftUI
-EventKit
-WeatherKit
-CloudKit
+Swift 1000
+SwiftUI 10
+EventKit 10
+WeatherKit 10
+CloudKit 10
 
-App Store Connect
+App Store Connect 10
 
-React Native
+React Native 1000
+
+Figma 1

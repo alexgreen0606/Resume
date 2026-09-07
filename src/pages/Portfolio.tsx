@@ -16,15 +16,12 @@ import Asteroids from '../docs/Projects/Asteroids/demo/Asteroids';
 import PlannerPreviewBackground from '../docs/Projects/Planner/components/PlannerPreviewBackground';
 
 const Portfolio = () => {
-
     const { palette, toggleTheme, theme } = useTheme()
-
     const navigate = useNavigate()
 
     const [demoActive, setDemoActive] = useState(false)
 
     const startDemo = () => setDemoActive(true)
-
     const endDemo = () => setDemoActive(false)
 
     useEffect(() => {

@@ -1,3 +1,4 @@
-React
-TypeScript
-CSS
+React 1000
+
+TypeScript 100
+CSS 100

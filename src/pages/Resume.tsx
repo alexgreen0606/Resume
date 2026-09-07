@@ -9,8 +9,8 @@ import WisconsinCrest from '../images/crest.png'
 import Card from '../components/Cards/Card';
 import { Education, Portfolio, SkillLevel } from '@carbon/icons-react';
 import CustomList from '../components/MicroElements/CustomList';
-import { useEffect, useMemo, useState } from 'react';
-import { readCustomTextToArray } from '../utils/textUtils';
+import { useEffect, useMemo } from 'react';
+import useTechStackReader from '../hooks/useTechStackReader';
 import WorkExperience from '../components/Layout/WorkExperience';
 import { useNavigate } from 'react-router-dom';
 import MarkdownInterpreter from '../components/Text/MarkdownInterpreter';
@@ -23,14 +23,11 @@ import CustomButton from '../components/Buttons/CustomButton';
 import LoadingDataContainer from '../components/MicroElements/LoadingDataContainer';
 import { workExperience } from '../docs/workExperience';
 
-const projectTechStackFiles = import.meta.glob('../docs/Projects/*/techStack.txt');
-const workTechStackFiles = import.meta.glob('../docs/Work/*/tech.txt');
-
 const Resume = () => {
     const { palette, theme } = useTheme()
     const navigate = useNavigate()
 
-    const [skills, setSkills] = useState<{ title: string, strength: number }[] | undefined>(undefined)
+    const skills = useTechStackReader();
 
     const yearsOfExperience = useMemo(() => {
         const startDate = new Date(2023, 1, 1); // February 2023 (start of professional experience)
@@ -45,33 +42,6 @@ const Resume = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     });
-
-    // Note: In the future, let's update every skill to have a weight assigned to it,
-    // then we can control sorting better.
-    useEffect(() => {
-        const fetchPageData = async () => {
-            const techStacks = await Promise.all(
-                [
-                    ...Object.values(projectTechStackFiles),
-                    ...Object.values(workTechStackFiles),
-                ].map(readCustomTextToArray)
-            );
-            const skillCounts = new Map<string, number>();
-
-            techStacks.flat().forEach(skill => {
-                skillCounts.set(skill, (skillCounts.get(skill) ?? 0) + 1);
-            });
-
-            const skillMap = Array.from(skillCounts, ([title, strength]) => ({ title, strength }))
-                .sort((firstSkill, secondSkill) =>
-                    secondSkill.strength - firstSkill.strength || firstSkill.title.localeCompare(secondSkill.title)
-                );
-
-            setSkills(skillMap)
-        }
-
-        fetchPageData()
-    }, [])
 
     return (
         <LoadingDataContainer

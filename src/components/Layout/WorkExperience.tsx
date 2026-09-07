@@ -9,6 +9,9 @@ import CustomText from '../Text/CustomText';
 import CustomButton from '../Buttons/CustomButton';
 import { getIconSizeStyles } from '../../utils/sizeUtils';
 import LoadingDataContainer from '../MicroElements/LoadingDataContainer';
+import useTechStackReader from '../../hooks/useTechStackReader';
+
+const workFiles = import.meta.glob('../../docs/Work/*/*');
 
 interface WorkExperienceProps {
     role: string
@@ -34,7 +37,7 @@ const WorkExperience: React.FC<WorkExperienceProps> = ({
     const { palette, typography } = useTheme()
 
     const [lessons, setLessons] = useState<string[]>([])
-    const [tech, setTech] = useState<string[]>([])
+    const techStack = useTechStackReader([`../docs/Work/${docFolderName}/techStack.txt`]);
     const [logo, setLogo] = useState<string | null>(null)
 
     const [showDetails, setShowDetails] = useState(false)
@@ -43,14 +46,10 @@ const WorkExperience: React.FC<WorkExperienceProps> = ({
     useEffect(() => {
         const fetchPageData = async () => {
 
-            const allWorkFiles = await import.meta.glob(`../../docs/Work/*/*`)
-
-            for (const [path, importFunc] of Object.entries(allWorkFiles)) {
+            for (const [path, importFunc] of Object.entries(workFiles)) {
                 if (path.includes(docFolderName)) {
                     if (path.includes('lessons.txt')) {
                         setLessons(await readCustomTextToArray(importFunc))
-                    } else if (path.includes('tech.txt')) {
-                        setTech(await readCustomTextToArray(importFunc))
                     } else if (path.includes('logo.png')) {
                         const logoModule = await importFunc() as { default: string }
                         setLogo(logoModule.default)
@@ -59,7 +58,7 @@ const WorkExperience: React.FC<WorkExperienceProps> = ({
             }
         }
         fetchPageData()
-    }, [])
+    }, [docFolderName])
 
     const handleLetterOpen = () => setLetterOpen(true);
 
@@ -118,7 +117,7 @@ const WorkExperience: React.FC<WorkExperienceProps> = ({
                         <Box className='standardBottomPadded standardHorizontalPadded'>
                             <Details
                                 lessons={lessons}
-                                tech={tech}
+                                tech={techStack?.map(skill => skill.title) || []}
                                 noMargins
                             />
                             {recommendationLetterConfig && (

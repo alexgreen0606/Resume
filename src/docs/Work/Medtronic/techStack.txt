@@ -1,0 +1,17 @@
+React 1000
+TypeScript 100
+JavaScript 100
+Vite 100
+React Testing Library 10
+
+Jotai 10
+TanStack 10
+Redux 10
+MDX 10
+
+Git 10
+GitLab 10
+
+Jira 1
+Confluence 1
+Figma 1

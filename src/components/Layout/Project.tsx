@@ -6,10 +6,13 @@ import { useTheme } from '../../styles/ThemeContext';
 import Details from './Details';
 import CustomButton from '../Buttons/CustomButton';
 import useIsPhoneScreen from '../../hooks/useIsPhoneScreen';
+import useTechStackReader from '../../hooks/useTechStackReader';
 import { getIconSizeStyles } from '../../utils/sizeUtils';
 import LoadingDataContainer from '../MicroElements/LoadingDataContainer';
 import Card from '../Cards/Card';
 import "../../styles/Project.css"
+
+const projectFiles = import.meta.glob('../../docs/Projects/*/*');
 
 interface ProjectProps {
     docsFolder: string
@@ -43,32 +46,23 @@ const Project: React.FC<ProjectProps> = ({
     sampleConfig,
     appStoreConfig
 }) => {
-
     const { palette, theme, typography } = useTheme()
 
-    const [techStackList, setTechStackList] = useState<string[] | undefined>(undefined)
     const [iphoneSampleImages, setIphoneSampleImages] = useState<string[] | undefined>(undefined)
     const [descriptionModule, setDescriptionModule] = useState<{ default?: ComponentType<{}> } | undefined>(undefined)
     const [lessonsList, setLessonsList] = useState<string[] | undefined>(undefined)
 
+    const techStack = useTechStackReader([`../docs/Projects/${docsFolder}/techStack.txt`]);
     const isPhoneScreen = useIsPhoneScreen(true)
 
     useEffect(() => {
         const loadProjectInfo = async () => {
 
-            const allProjectFiles = import.meta.glob('../../docs/Projects/*/*');
-
-            const techStackFilePath = `../../docs/Projects/${docsFolder}/techStack.txt`;
             const descriptionFilePath = `../../docs/Projects/${docsFolder}/description.mdx`;
             const lessonsFilePath = `../../docs/Projects/${docsFolder}/lessons.txt`;
 
-            const techStackFile = allProjectFiles[techStackFilePath];
-            const descriptionFile = allProjectFiles[descriptionFilePath];
-            const lessonsFile = allProjectFiles[lessonsFilePath];
-
-            if (techStackFile) {
-                setTechStackList(await readCustomTextToArray(techStackFile));
-            }
+            const descriptionFile = projectFiles[descriptionFilePath];
+            const lessonsFile = projectFiles[lessonsFilePath];
 
             if (descriptionFile) {
                 const thisDescriptionModule = await descriptionFile() as { default: ComponentType<{}> }
@@ -94,7 +88,7 @@ const Project: React.FC<ProjectProps> = ({
 
     return (
         <LoadingDataContainer
-            loadedData={[descriptionModule, lessonsList, techStackList]}
+            loadedData={[descriptionModule, lessonsList, techStack]}
             display={
                 <Card
                     title={title}
@@ -242,7 +236,7 @@ const Project: React.FC<ProjectProps> = ({
                         <Details
                             description={descriptionModule || {}}
                             lessons={lessonsList || []}
-                            tech={techStackList || []}
+                            tech={techStack?.map(skill => skill.title) || []}
                             noMargins={!!specialInfo}
                         />
 

@@ -1,10 +1,11 @@
-React
-JavaScript
-Redux
-CSS
+React 1000
+Spring Boot 1000
 
-Spring Boot
-Java
-JPA Repository
+JavaScript 100
+CSS 100
+Java 100
 
-Docker
+Redux 10
+JPA Repository 10
+
+Docker 1

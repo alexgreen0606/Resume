@@ -1,5 +1,7 @@
-React
-TypeScript
-Vite
-CSS
-MDX
+React 1000
+
+TypeScript 100
+Vite 100
+CSS 100
+
+MDX 10

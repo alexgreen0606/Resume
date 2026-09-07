@@ -1,0 +1,15 @@
+React 1000
+TypeScript 100
+Redux 10
+
+JUnit 10
+
+Spring Boot 1000
+Java 100
+SQL 100
+
+Git 10
+GitHub 10
+
+Azure 1
+Jenkins 1
